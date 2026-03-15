@@ -391,5 +391,63 @@
         lucide.createIcons();
         document.getElementById("year").textContent = new Date().getFullYear();
     </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // 🟢 1. Rastreamento de Clique nos Produtos (Saída para Landing Pages)
+            const productLinks = document.querySelectorAll('a[data-dest]');
+            productLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    const produtoID = this.getAttribute('data-dest');
+                    const nomeProduto = produtoID === 'kit' ? 'Kit Operacional ACS' : 'Manual APS 360';
+                    
+                    // Dispara evento padrão de e-commerce visualizando item
+                    gtag('event', 'select_item', {
+                        'item_list_name': 'vitrine_principal',
+                        'items': [{
+                            'item_id': produtoID,
+                            'item_name': nomeProduto
+                        }]
+                    });
+                });
+            });
+
+            // 🟢 2. Rastreamento de Dúvidas (FAQ Open)
+            const faqs = document.querySelectorAll('details');
+            faqs.forEach(faq => {
+                faq.addEventListener('toggle', function() {
+                    if (this.open) {
+                        const questionText = this.querySelector('summary').innerText.trim();
+                        gtag('event', 'faq_open', {
+                            'pergunta': questionText,
+                            'pagina': 'vitrine'
+                        });
+                    }
+                });
+            });
+
+            // 🟢 3. Rastreamento de Navegação Interna (Âncoras)
+            const anchorLinks = document.querySelectorAll('a[href^="#"]');
+            anchorLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    const destino = this.getAttribute('href');
+                    gtag('event', 'navegacao_vitrine', {
+                        'destino_secao': destino
+                    });
+                });
+            });
+
+            // 🟢 4. Rastreamento de Busca por Suporte (Clique no Instagram)
+            const igLink = document.querySelector('a[href*="instagram.com"]');
+            if (igLink) {
+                igLink.addEventListener('click', function() {
+                    gtag('event', 'click_suporte_ig', {
+                        'origem': 'vitrine_duvidas'
+                    });
+                });
+            }
+        });
+    </script>
 </body>
 </html>
