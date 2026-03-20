@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>Portal ACS — Escolha seu material</title>
+    <title>Ferramentas para ACS | Escolha seu material</title>
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-926XGX9HB2"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-926XGX9HB2');
     </script>
 
@@ -23,7 +22,6 @@
     </script>
 
     <script src="https://cdn.tailwindcss.com"></script>
-
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -47,12 +45,8 @@
                             DEFAULT: "#0f172a", // slate-900
                         },
                         action: {
-                            DEFAULT: "#1e3a8a", // blue-900 (APS)
+                            DEFAULT: "#1e3a8a", // blue-900
                             hover: "#1e40af",
-                        },
-                        kitblue: {
-                            DEFAULT: "#4f46e5", // indigo-600 (Kit)
-                            hover: "#4338ca"
                         }
                     },
                     boxShadow: {
@@ -66,7 +60,7 @@
 
     <style>
         body {
-            background-color: #f8fafc; /* slate-50 */
+            background-color: #f8fafc;
             color: theme('colors.ink.DEFAULT');
             -webkit-font-smoothing: antialiased;
         }
@@ -96,53 +90,39 @@
                     <img src="assets/logo.png" alt="Logo" class="w-full h-full object-cover" onerror="this.style.display='none'" />
                 </div>
                 <div class="leading-tight min-w-0">
-                    <div class="font-black text-ink tracking-tight truncate">Ferramentas para acs</div>
+                    <div class="font-black text-ink tracking-tight truncate">Ferramentas para ACS</div>
                     <div class="text-xs text-gray-500 font-medium truncate">Escolha seu material</div>
                 </div>
             </a>
 
-            <a href="#selecionar" class="inline-flex items-center gap-2 bg-action hover:bg-action-hover text-white font-bold px-5 py-2.5 rounded-xl shadow-softer transition whitespace-nowrap cta-btn">
+            <a href="#selecionar" class="inline-flex items-center gap-2 bg-ink hover:bg-slate-800 text-white font-bold px-5 py-2.5 rounded-xl shadow-softer transition whitespace-nowrap cta-btn">
                 <i data-lucide="mouse-pointer-click" class="w-4 h-4"></i>
-                <span class="hidden sm:inline">Escolher agora</span>
-                <span class="sm:hidden">Escolher</span>
+                <span>Escolher</span>
             </a>
         </div>
     </header>
 
-    <section id="top" class="max-w-5xl mx-auto px-4 pt-12 pb-10 text-center">
-        <div class="inline-flex items-center gap-2 bg-white px-4 py-1.5 rounded-full shadow-softer border border-black/5 text-sm mb-6">
-            <span class="w-2 h-2 rounded-full bg-brand"></span>
-            <span class="text-gray-700 font-medium"><strong>Decisão rápida</strong> (1 escolha)</span>
-        </div>
-
+    <section id="top" class="max-w-5xl mx-auto px-4 pt-8 pb-6 text-center">
         <h1 class="text-3xl md:text-5xl font-black tracking-tight text-ink leading-tight mb-3">
-            Hoje você precisa evitar o quê?
+            Escolha seu material e vá direto.
         </h1>
 
-        <p class="text-gray-600 font-medium md:text-lg mb-8">
-            Duas ferramentas. Uma escolha. Sem enrolação.
+        <p class="text-gray-600 font-medium md:text-lg mb-6">
+            As 2 opções estão logo abaixo.
         </p>
 
         <div class="flex justify-center gap-3">
-            <a href="#selecionar" class="inline-flex items-center gap-2 bg-action hover:bg-action-hover text-white font-bold px-6 py-3 rounded-2xl shadow-softer transition cta-btn">
+            <a href="#selecionar" class="inline-flex items-center gap-2 bg-ink hover:bg-slate-800 text-white font-bold px-6 py-3 rounded-2xl shadow-softer transition cta-btn">
                 <i data-lucide="layout-grid" class="w-5 h-5"></i>
                 Ver as 2 opções
-            </a>
-
-            <a href="#duvidas" class="inline-flex items-center gap-2 bg-white hover:bg-gray-50 text-ink font-bold px-6 py-3 rounded-2xl shadow-softer border border-black/5 transition cta-btn">
-                <i data-lucide="help-circle" class="w-5 h-5"></i>
-                Tô em dúvida
             </a>
         </div>
     </section>
 
-    <section id="selecionar" class="max-w-5xl mx-auto px-4 pt-6 pb-12">
-        <div class="text-center mb-8">
-            <h2 class="text-2xl md:text-3xl font-black text-ink tracking-tight">
-                Selecione o seu material
-            </h2>
-            <p class="mt-2 text-gray-600 font-medium">
-                Escolha pelo seu "evitar" de hoje e vá direto.
+    <section id="selecionar" class="max-w-5xl mx-auto px-4 pt-4 pb-12">
+        <div class="text-center mb-6">
+            <p class="text-lg md:text-xl font-bold text-ink tracking-tight">
+                Kit para campo. APS 360 para regra e pontuação.
             </p>
         </div>
 
@@ -158,7 +138,7 @@
                         <div>
                             <h3 class="text-2xl font-black text-ink">Kit Operacional ACS</h3>
                             <p class="mt-2 text-gray-600 font-medium leading-snug">
-                                Pra quem quer <strong>não esquecer nada na visita</strong>.
+                                Para visita, registro e organização no campo.
                             </p>
                         </div>
                         <div class="w-12 h-12 rounded-2xl bg-brand-light flex items-center justify-center shrink-0 border border-brand/20">
@@ -169,21 +149,21 @@
                     <ul class="space-y-3 text-sm text-gray-700 font-medium mb-8">
                         <li class="flex items-start gap-2">
                             <i data-lucide="check" class="w-5 h-5 text-brand shrink-0"></i>
-                            <span>Pronto pra imprimir e levar pro campo</span>
+                            <span>Ferramentas práticas para imprimir e usar no território</span>
                         </li>
                         <li class="flex items-start gap-2">
                             <i data-lucide="check" class="w-5 h-5 text-brand shrink-0"></i>
-                            <span>Organiza VD, retornos e metas numa folha</span>
+                            <span>Apoio para visita, retornos e organização da rotina</span>
                         </li>
                     </ul>
 
                     <div class="mt-auto">
-                        <a data-dest="kit" href="https://leothaylor.github.io/Kit-operaciona-acs-TikTok/" target="_blank" rel="noopener noreferrer" class="inline-flex w-full justify-center items-center gap-2 bg-kitblue hover:bg-kitblue-hover text-white font-black py-4 rounded-2xl transition shadow-lg shadow-indigo-500/20 cta-btn">
+                        <a data-dest="kit" href="https://leothaylor.github.io/Kit-operaciona-acs-TikTok/" target="_blank" rel="noopener noreferrer" class="inline-flex w-full justify-center items-center gap-2 bg-brand hover:bg-brand-dark text-white font-black py-4 rounded-2xl transition shadow-lg shadow-teal-500/20 cta-btn">
                             <i data-lucide="external-link" class="w-5 h-5"></i>
-                            Ir direto pro Kit Operacional
+                            Ir para o Kit Operacional ACS
                         </a>
                         <p class="mt-4 text-[11px] text-gray-400 font-medium text-center">
-                            Dica: se você esquece pergunta, volta na casa ou trava na visita — é aqui.
+                            Para quem precisa de apoio prático no campo.
                         </p>
                     </div>
                 </div>
@@ -199,7 +179,7 @@
                         <div>
                             <h3 class="text-2xl font-black text-ink">Manual Básico APS 360</h3>
                             <p class="mt-2 text-gray-600 font-medium leading-snug">
-                                Pra quem quer <strong>não perder ponto por regra invisível</strong>.
+                                Para entender regra, validação e o que conta na pontuação.
                             </p>
                         </div>
                         <div class="w-12 h-12 rounded-2xl bg-indigo-50 flex items-center justify-center shrink-0 border border-action/20">
@@ -210,21 +190,21 @@
                     <ul class="space-y-3 text-sm text-gray-700 font-medium mb-8">
                         <li class="flex items-start gap-2">
                             <i data-lucide="check" class="w-5 h-5 text-action shrink-0"></i>
-                            <span>Entenda janela, validação, vínculo e o que conta</span>
+                            <span>Entenda janela móvel, vínculo, cadastro e acompanhamento</span>
                         </li>
                         <li class="flex items-start gap-2">
                             <i data-lucide="check" class="w-5 h-5 text-action shrink-0"></i>
-                            <span>Tradução do técnico pro operacional (sem mistério)</span>
+                            <span>Leitura direta para entender melhor a lógica da APS 360</span>
                         </li>
                     </ul>
 
                     <div class="mt-auto">
                         <a data-dest="aps360" href="https://leothaylor.github.io/manual-basico-APS360TikTok/" target="_blank" rel="noopener noreferrer" class="inline-flex w-full justify-center items-center gap-2 bg-action hover:bg-action-hover text-white font-black py-4 rounded-2xl transition shadow-lg shadow-blue-900/20 cta-btn">
                             <i data-lucide="external-link" class="w-5 h-5"></i>
-                            Ir direto pro Manual APS 360
+                            Ir para o Manual APS 360
                         </a>
                         <p class="mt-4 text-[11px] text-gray-400 font-medium text-center">
-                            Dica: se você trava no “fechamento” e não entende por que não pontuou — é aqui.
+                            Para quem quer entender melhor por que a produção não contou como esperava.
                         </p>
                     </div>
                 </div>
@@ -233,78 +213,32 @@
         </div>
     </section>
 
-    <section id="duvidas" class="max-w-5xl mx-auto px-4 pb-16">
-        <div class="bg-white rounded-[2rem] shadow-soft border border-black/5 p-6 md:p-10 relative overflow-hidden">
+    <section id="canais" class="max-w-5xl mx-auto px-4 pb-8">
+        <div class="bg-white rounded-[2rem] shadow-soft border border-black/5 p-6 md:p-10 text-center">
+            <h2 class="text-xl md:text-2xl font-black text-ink tracking-tight">Me acompanhe também</h2>
+            <p class="mt-2 text-gray-600 font-medium mb-6">
+                Se quiser continuar vendo conteúdos e atualizações, me acompanhe nos canais abaixo.
+            </p>
             
-            <div class="absolute -right-8 -top-8 w-32 h-32 bg-brand/5 rounded-full blur-2xl pointer-events-none"></div>
-
-            <div class="flex items-start justify-between gap-6 relative z-10">
-                <div>
-                    <h2 class="text-2xl md:text-3xl font-black text-ink tracking-tight">Tô em dúvida (10 segundos)</h2>
-                    <p class="mt-2 text-gray-600 font-medium">
-                        Só pra você não travar na escolha.
-                    </p>
-                </div>
-                <div class="hidden md:flex w-14 h-14 rounded-full bg-brand-light border border-brand/20 items-center justify-center shrink-0">
-                    <i data-lucide="message-circle" class="w-6 h-6 text-brand"></i>
-                </div>
-            </div>
-
-            <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4 relative z-10">
-                <details class="group rounded-2xl border border-black/5 p-5 bg-slate-50 cursor-pointer">
-                    <summary class="list-none flex items-center justify-between font-bold text-ink outline-none">
-                        Se eu tô perdido no "fechamento", qual eu pego?
-                        <span class="ml-3 text-gray-400 group-open:rotate-180 transition">
-                            <i data-lucide="chevron-down" class="w-5 h-5"></i>
-                        </span>
-                    </summary>
-                    <p class="mt-4 text-sm text-gray-600 font-medium leading-relaxed">
-                        Se o problema é <strong>organização da execução</strong> (VD, retorno, controle no papel), vai de <strong>Kit</strong>.<br><br>
-                        Se o problema é <strong>regra</strong> (janela, validação, vínculo, o que conta), vai de <strong>APS 360</strong>.
-                    </p>
-                </details>
-
-                <details class="group rounded-2xl border border-black/5 p-5 bg-slate-50 cursor-pointer">
-                    <summary class="list-none flex items-center justify-between font-bold text-ink outline-none">
-                        O Kit substitui o tablet/sistema?
-                        <span class="ml-3 text-gray-400 group-open:rotate-180 transition">
-                            <i data-lucide="chevron-down" class="w-5 h-5"></i>
-                        </span>
-                    </summary>
-                    <p class="mt-4 text-sm text-gray-600 font-medium leading-relaxed">
-                        Não. O Kit é <strong>contingência e organização</strong> no território.
-                        Você lança no sistema quando estiver disponível — com menos risco de esquecer.
-                    </p>
-                </details>
-            </div>
-
-            <div class="mt-8 flex flex-col sm:flex-row gap-4 relative z-10">
-                <a href="#selecionar" class="inline-flex w-full justify-center items-center gap-2 bg-brand hover:bg-brand-dark text-white font-black py-4 rounded-2xl transition shadow-lg shadow-teal-500/20 cta-btn">
-                    <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
-                    Voltar pras 2 opções
-                </a>
-
-                <a href="https://www.instagram.com/acs5374/" target="_blank" rel="noopener noreferrer" class="inline-flex w-full justify-center items-center gap-2 bg-black hover:bg-gray-800 text-white font-black py-4 rounded-2xl transition shadow-lg shadow-black/20 cta-btn">
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a id="btn-canal-ig" href="https://www.instagram.com/acs5374/" target="_blank" rel="noopener noreferrer" class="inline-flex justify-center items-center gap-2 bg-slate-50 hover:bg-slate-100 text-ink font-bold px-8 py-3.5 rounded-2xl transition shadow-sm border border-slate-200 cta-btn">
                     <i data-lucide="instagram" class="w-5 h-5"></i>
-                    Falar no Instagram
+                    Instagram
                 </a>
-            </div>
-
-            <div class="mt-5 text-xs text-gray-400 font-medium text-center relative z-10">
-                Se quiser, manda "KIT" ou "APS" no direct e eu te digo qual encaixa na sua rotina.
+                
+                <a id="btn-canal-tiktok" href="https://www.tiktok.com/@rotina_acs?_r=1&_t=ZS-94qyP9X6gA1" target="_blank" rel="noopener noreferrer" class="inline-flex justify-center items-center gap-2 bg-slate-50 hover:bg-slate-100 text-ink font-bold px-8 py-3.5 rounded-2xl transition shadow-sm border border-slate-200 cta-btn">
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.01.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+                    TikTok
+                </a>
             </div>
         </div>
     </section>
 
     <footer class="border-t border-black/5 bg-white">
-        <div class="max-w-5xl mx-auto px-4 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
-            <div class="text-sm text-gray-500 font-medium">
+        <div class="max-w-5xl mx-auto px-4 py-6 flex flex-col md:flex-row items-center justify-center gap-4">
+            <div class="text-sm text-gray-500 font-medium text-center">
                 &copy; <span id="year"></span> ACS Tático. Todos os direitos reservados.
             </div>
-
-            <a href="#top" class="text-sm font-bold text-ink bg-slate-100 hover:bg-slate-200 px-5 py-2.5 rounded-xl transition cta-btn">
-                Voltar ao topo
-            </a>
         </div>
     </footer>
 
@@ -410,7 +344,6 @@
                     const produtoID = this.getAttribute('data-dest');
                     const nomeProduto = produtoID === 'kit' ? 'Kit Operacional ACS' : 'Manual APS 360';
                     
-                    // Dispara evento padrão de e-commerce visualizando item
                     gtag('event', 'select_item', {
                         'item_list_name': 'vitrine_principal',
                         'items': [{
@@ -421,7 +354,32 @@
                 });
             });
 
-            // 🟢 2. Rastreamento de Dúvidas (FAQ Open)
+            // 🟢 2. Rastreamento de Canais e Suporte
+            const btnIg = document.getElementById('btn-canal-ig');
+            if (btnIg) {
+                btnIg.addEventListener('click', function() {
+                    gtag('event', 'click_canal_instagram', {
+                        'origem': 'vitrine_canais'
+                    });
+                    // Mantendo métrica legada da versão original por segurança
+                    gtag('event', 'click_suporte_ig', {
+                        'origem': 'vitrine_canais'
+                    });
+                });
+            }
+
+            const btnTiktok = document.getElementById('btn-canal-tiktok');
+            if (btnTiktok) {
+                btnTiktok.addEventListener('click', function() {
+                    gtag('event', 'click_canal_tiktok', {
+                        'origem': 'vitrine_canais'
+                    });
+                });
+            }
+
+            // 🟢 3. Rastreamento de Dúvidas / FAQ Open (Mantido preventivamente)
+            // Mesmo que não haja <details> nesta versão visual, mantemos o rastreamento 
+            // caso elementos sejam adicionados no futuro, garantindo a fonte de verdade do HTML oficial.
             const faqs = document.querySelectorAll('details');
             faqs.forEach(faq => {
                 faq.addEventListener('toggle', function() {
@@ -435,7 +393,7 @@
                 });
             });
 
-            // 🟢 3. Rastreamento de Navegação Interna (Âncoras)
+            // 🟢 4. Rastreamento de Navegação Interna (Âncoras)
             const anchorLinks = document.querySelectorAll('a[href^="#"]');
             anchorLinks.forEach(link => {
                 link.addEventListener('click', function() {
@@ -445,16 +403,6 @@
                     });
                 });
             });
-
-            // 🟢 4. Rastreamento de Busca por Suporte (Clique no Instagram)
-            const igLink = document.querySelector('a[href*="instagram.com"]');
-            if (igLink) {
-                igLink.addEventListener('click', function() {
-                    gtag('event', 'click_suporte_ig', {
-                        'origem': 'vitrine_duvidas'
-                    });
-                });
-            }
         });
     </script>
 </body>
