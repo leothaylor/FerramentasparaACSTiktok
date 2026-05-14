@@ -78,6 +78,16 @@
         }
 
         .cta-btn:active { transform: scale(0.98); }
+
+        /* 🟢 Animação Breathing para Destaque Principal */
+        @keyframes pulse-brand {
+            0% { box-shadow: 0 0 0 0 rgba(20, 184, 166, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(20, 184, 166, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(20, 184, 166, 0); }
+        }
+        .btn-pulse {
+            animation: pulse-brand 2.5s infinite;
+        }
     </style>
 </head>
 
@@ -108,17 +118,13 @@
         </h1>
 
         <p class="text-gray-600 font-medium md:text-lg mb-6">
-            As 2 opções estão logo abaixo.
+            As opções estão logo abaixo.
         </p>
 
         <div class="flex flex-wrap justify-center gap-3">
             <a href="#selecionar" class="inline-flex items-center gap-2 bg-ink hover:bg-slate-800 text-white font-bold px-6 py-3 rounded-2xl shadow-softer transition cta-btn">
                 <i data-lucide="layout-grid" class="w-5 h-5"></i>
-                Ver as 2 opções
-            </a>
-            <a data-dest="radar" href="https://leothaylor.github.io/RadarvacinaACS/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-slate-200 hover:bg-slate-300 text-ink font-bold px-6 py-3 rounded-2xl shadow-softer transition cta-btn">
-                <i data-lucide="radar" class="w-5 h-5 text-ink"></i>
-                Radar Vacinal Grátis
+                Ver as opções
             </a>
         </div>
     </section>
@@ -132,12 +138,12 @@
 
         <div class="flex gap-5 overflow-x-auto hide-scrollbar pb-6 -mx-4 px-4 md:mx-0 md:px-0 md:grid md:grid-cols-2 md:overflow-visible">
             
-            <article class="min-w-[85%] sm:min-w-[320px] md:min-w-0 bg-white rounded-3xl shadow-soft border border-black/5 flex flex-col h-full">
+            <article class="relative group min-w-[85%] sm:min-w-[320px] md:min-w-0 bg-white rounded-3xl shadow-soft hover:shadow-lg border border-black/5 hover:border-brand/30 transition-all hover:-translate-y-1 flex flex-col h-full">
                 <div class="p-3 pb-0">
                     <img src="assets/kit-operacional-acs.jpg" alt="Kit Operacional ACS" class="w-full h-[220px] object-cover rounded-2xl border border-black/5" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22400%22><rect width=%22800%22 height=%22400%22 fill=%22%23e2e8f0%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22sans-serif%22 font-weight=%22bold%22 fill=%22%2394a3b8%22>Capa do Kit ACS</text></svg>'">
                 </div>
                 
-                <div class="p-6 md:p-8 flex flex-col flex-grow">
+                <div class="p-6 md:p-8 flex flex-col flex-grow relative z-20">
                     <div class="flex items-start justify-between gap-4 mb-4">
                         <div>
                             <h3 class="text-2xl font-black text-ink">Kit Operacional ACS</h3>
@@ -148,6 +154,11 @@
                         <div class="w-12 h-12 rounded-2xl bg-brand-light flex items-center justify-center shrink-0 border border-brand/20">
                             <i data-lucide="clipboard-check" class="w-6 h-6 text-brand"></i>
                         </div>
+                    </div>
+
+                    <div class="inline-flex items-start gap-1.5 bg-brand-light text-brand-dark text-[10px] font-bold uppercase tracking-wide px-2.5 py-2 rounded-lg border border-brand/20 mb-6">
+                        <i data-lucide="check-circle-2" class="w-3.5 h-3.5 shrink-0"></i>
+                        <span>Material atualizado com as notas metodológicas dos indicadores</span>
                     </div>
 
                     <ul class="space-y-3 text-sm text-gray-700 font-medium mb-8">
@@ -161,8 +172,8 @@
                         </li>
                     </ul>
 
-                    <div class="mt-auto">
-                        <a data-dest="kit" href="https://leothaylor.github.io/kit-operacional-acs-Campanha/" target="_blank" rel="noopener noreferrer" class="inline-flex w-full justify-center items-center gap-2 bg-brand hover:bg-brand-dark text-white font-black py-4 rounded-2xl transition shadow-lg shadow-teal-500/20 cta-btn">
+                    <div class="mt-auto relative">
+                        <a data-dest="kit" href="https://leothaylor.github.io/kit-operacional-acs-Campanha/" target="_blank" rel="noopener noreferrer" class="before:absolute before:-inset-[500px] before:z-10 inline-flex w-full justify-center items-center gap-2 bg-brand hover:bg-brand-dark text-white font-black py-4 rounded-2xl transition shadow-lg shadow-teal-500/20 cta-btn btn-pulse">
                             <i data-lucide="external-link" class="w-5 h-5"></i>
                             Ir para o Kit Operacional ACS
                         </a>
@@ -173,12 +184,12 @@
                 </div>
             </article>
 
-            <article class="min-w-[85%] sm:min-w-[320px] md:min-w-0 bg-white rounded-3xl shadow-soft border border-black/5 flex flex-col h-full">
+            <article class="relative group min-w-[85%] sm:min-w-[320px] md:min-w-0 bg-white rounded-3xl shadow-soft hover:shadow-lg border border-black/5 hover:border-action/30 transition-all hover:-translate-y-1 flex flex-col h-full">
                 <div class="p-3 pb-0">
                     <img src="assets/manual-aps360.jpg" alt="Manual Básico APS 360" class="w-full h-[220px] object-cover rounded-2xl border border-black/5" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22400%22><rect width=%22800%22 height=%22400%22 fill=%22%23e2e8f0%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22sans-serif%22 font-weight=%22bold%22 fill=%22%2394a3b8%22>Capa do APS 360</text></svg>'">
                 </div>
                 
-                <div class="p-6 md:p-8 flex flex-col flex-grow">
+                <div class="p-6 md:p-8 flex flex-col flex-grow relative z-20">
                     <div class="flex items-start justify-between gap-4 mb-4">
                         <div>
                             <h3 class="text-2xl font-black text-ink">Manual Básico APS 360</h3>
@@ -202,8 +213,8 @@
                         </li>
                     </ul>
 
-                    <div class="mt-auto">
-                        <a data-dest="aps360" href="https://leothaylor.github.io/manual-basico-APS360TikTok/" target="_blank" rel="noopener noreferrer" class="inline-flex w-full justify-center items-center gap-2 bg-action hover:bg-action-hover text-white font-black py-4 rounded-2xl transition shadow-lg shadow-blue-900/20 cta-btn">
+                    <div class="mt-auto relative">
+                        <a data-dest="aps360" href="https://leothaylor.github.io/manual-basico-APS360TikTok/" target="_blank" rel="noopener noreferrer" class="before:absolute before:-inset-[500px] before:z-10 inline-flex w-full justify-center items-center gap-2 bg-action hover:bg-action-hover text-white font-black py-4 rounded-2xl transition shadow-lg shadow-blue-900/20 cta-btn">
                             <i data-lucide="external-link" class="w-5 h-5"></i>
                             Ir para o Manual APS 360
                         </a>
@@ -214,14 +225,83 @@
                 </div>
             </article>
 
+            <article class="hidden min-w-[85%] sm:min-w-[320px] md:min-w-0 bg-white rounded-3xl shadow-soft hover:shadow-lg border border-black/5 transition-all hover:-translate-y-1 flex flex-col h-full relative group">
+                <div class="absolute top-4 right-4 bg-slate-800 text-white text-[10px] font-black uppercase px-3.5 py-1.5 rounded-full z-20 tracking-widest shadow-md border border-slate-700">
+                    Em Breve
+                </div>
+                
+                <div class="p-3 pb-0 relative z-20">
+                    <div class="w-full h-[220px] bg-slate-100 rounded-2xl border border-black/5 flex flex-col items-center justify-center text-slate-300">
+                        <i data-lucide="lock" class="w-10 h-10 mb-2"></i>
+                        <span class="text-xs font-bold uppercase tracking-widest text-slate-400">Acesso Restrito</span>
+                    </div>
+                </div>
+                
+                <div class="p-6 md:p-8 flex flex-col flex-grow relative z-20 pointer-events-none">
+                    <div class="flex items-start justify-between gap-4 mb-4">
+                        <div>
+                            <h3 class="text-2xl font-black text-ink">Superkit ACS</h3>
+                            <p class="mt-2 text-gray-600 font-medium leading-snug">
+                                Construído com o método testado na mesa e validado por vocês.
+                            </p>
+                        </div>
+                        <div class="w-12 h-12 rounded-2xl bg-slate-50 flex items-center justify-center shrink-0 border border-slate-200">
+                            <i data-lucide="zap" class="w-6 h-6 text-slate-400"></i>
+                        </div>
+                    </div>
+
+                    <ul class="space-y-3 text-sm text-gray-400 font-medium mb-8">
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="check" class="w-5 h-5 text-slate-300 shrink-0"></i>
+                            <span>Evolução completa do material de campo</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="check" class="w-5 h-5 text-slate-300 shrink-0"></i>
+                            <span>Novas ferramentas táticas exclusivas</span>
+                        </li>
+                    </ul>
+
+                    <div class="mt-auto relative">
+                        <button class="inline-flex w-full justify-center items-center gap-2 bg-slate-100 text-slate-400 font-black py-4 rounded-2xl transition">
+                            <i data-lucide="clock" class="w-5 h-5"></i>
+                            Disponível em 01/06
+                        </button>
+                        <p class="mt-4 text-[12px] text-gray-400 font-black text-center uppercase tracking-widest">
+                            R$ 34,90
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="absolute inset-0 z-30 cursor-pointer" onclick="openSuperkitModal()"></div>
+            </article>
+
+        </div>
+    </section>
+
+    <section id="comunidade" class="max-w-5xl mx-auto px-4 pb-10">
+        <div class="bg-ink rounded-[2rem] shadow-soft border border-slate-800 p-8 md:p-12 text-center relative overflow-hidden">
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-md h-32 bg-brand/20 blur-[80px] rounded-full pointer-events-none"></div>
+            
+            <div class="relative z-10">
+                <div class="w-16 h-16 bg-slate-800/50 rounded-2xl border border-white/10 flex items-center justify-center mx-auto mb-5">
+                    <i data-lucide="radar" class="w-8 h-8 text-brand"></i>
+                </div>
+                <h2 class="text-2xl md:text-3xl font-black text-white tracking-tight mb-3">Ferramenta Grátis para a Comunidade</h2>
+                <p class="text-slate-300 font-medium mb-8 max-w-xl mx-auto">
+                    Acesse o Radar Vacinal. Organize por apelido as crianças da sua microárea e veja rapidamente quem está em atraso ou em dia.
+                </p>
+                <a data-dest="radar" href="https://leothaylor.github.io/RadarvacinaACS/" target="_blank" rel="noopener noreferrer" class="inline-flex justify-center items-center gap-2 bg-brand hover:bg-brand-light hover:text-brand-dark text-white font-black px-8 py-4 rounded-2xl transition shadow-lg shadow-brand/20 cta-btn">
+                    Acessar Radar Vacinal Grátis
+                </a>
+            </div>
         </div>
     </section>
 
     <section id="canais" class="max-w-5xl mx-auto px-4 pb-8">
         <div class="bg-white rounded-[2rem] shadow-soft border border-black/5 p-6 md:p-10 text-center">
-            <h2 class="text-xl md:text-2xl font-black text-ink tracking-tight">Me acompanhe também</h2>
-            <p class="mt-2 text-gray-600 font-medium mb-6">
-                Se quiser continuar vendo conteúdos e atualizações, me acompanhe nos canais abaixo.
+            <h2 class="text-xl md:text-2xl font-black text-ink tracking-tight">Faça parte da comunidade</h2>
+            <p class="mt-2 text-gray-600 font-medium mb-8 max-w-lg mx-auto">
+                Junte-se a mais de 18.000 profissionais de saúde que acompanham nossas atualizações diárias.
             </p>
             
             <div class="flex flex-col sm:flex-row justify-center gap-4">
@@ -245,6 +325,55 @@
             </div>
         </div>
     </footer>
+
+    <div id="modal-superkit" class="fixed inset-0 z-[100] bg-slate-900/60 backdrop-blur-sm hidden flex-col justify-center items-center px-4 transition-opacity opacity-0">
+        <div class="bg-white max-w-sm w-full rounded-3xl p-8 text-center shadow-2xl transform scale-95 transition-transform" id="modal-superkit-content">
+            <div class="w-16 h-16 bg-slate-50 text-slate-400 rounded-full flex items-center justify-center mx-auto mb-4 border border-slate-100">
+                <i data-lucide="lock" class="w-8 h-8"></i>
+            </div>
+            <h3 class="text-xl font-black text-ink mb-2">Em fase final de testes</h3>
+            <p class="text-sm text-gray-500 font-medium mb-8 leading-relaxed">
+                O Superkit está em testes táticos. Acompanhe o Instagram para o lançamento oficial em primeira mão!
+            </p>
+            <a href="https://www.instagram.com/acs5374/" target="_blank" rel="noopener noreferrer" class="inline-flex w-full justify-center items-center gap-2 bg-ink hover:bg-slate-800 text-white font-black py-4 rounded-2xl transition shadow-md">
+                <i data-lucide="instagram" class="w-5 h-5"></i>
+                Acompanhar Lançamento
+            </a>
+            <button onclick="closeSuperkitModal()" class="mt-5 text-xs font-bold text-gray-400 hover:text-gray-600 uppercase tracking-widest px-4 py-2 transition-colors">
+                Voltar à Vitrine
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Função de controle do Modal do Superkit
+        function openSuperkitModal() {
+            const modal = document.getElementById('modal-superkit');
+            const content = document.getElementById('modal-superkit-content');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            // Timeout leve para o CSS renderizar a transição suave
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                content.classList.remove('scale-95');
+            }, 10);
+            
+            if(typeof gtag === 'function') {
+                gtag('event', 'view_modal_superkit');
+            }
+        }
+
+        function closeSuperkitModal() {
+            const modal = document.getElementById('modal-superkit');
+            const content = document.getElementById('modal-superkit-content');
+            modal.classList.add('opacity-0');
+            content.classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            }, 300);
+        }
+    </script>
 
     <script>
         (function () {
@@ -341,7 +470,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             
-            // 🟢 1. Rastreamento de Clique nos Produtos (Saída para Landing Pages)
+            // 🟢 Rastreamento
             const productLinks = document.querySelectorAll('a[data-dest]');
             productLinks.forEach(link => {
                 link.addEventListener('click', function() {
@@ -358,14 +487,12 @@
                 });
             });
 
-            // 🟢 2. Rastreamento de Canais e Suporte
             const btnIg = document.getElementById('btn-canal-ig');
             if (btnIg) {
                 btnIg.addEventListener('click', function() {
                     gtag('event', 'click_canal_instagram', {
                         'origem': 'vitrine_canais'
                     });
-                    // Mantendo métrica legada da versão original por segurança
                     gtag('event', 'click_suporte_ig', {
                         'origem': 'vitrine_canais'
                     });
@@ -381,7 +508,6 @@
                 });
             }
 
-            // 🟢 3. Rastreamento de Dúvidas / FAQ Open (Mantido preventivamente)
             const faqs = document.querySelectorAll('details');
             faqs.forEach(faq => {
                 faq.addEventListener('toggle', function() {
@@ -395,7 +521,6 @@
                 });
             });
 
-            // 🟢 4. Rastreamento de Navegação Interna (Âncoras)
             const anchorLinks = document.querySelectorAll('a[href^="#"]');
             anchorLinks.forEach(link => {
                 link.addEventListener('click', function() {
