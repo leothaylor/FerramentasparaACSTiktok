@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>Ferramentas para ACS | Escolha seu material</title>
-    <meta name="description" content="Vitrine oficial ROTINA ACS para acessar o SuperKit ACS, o Manual APS 360 e o Radar Vacinal.">
+    <title>Ferramentas para ACS | ROTINA ACS</title>
+    <meta name="description" content="Materiais próprios, Achados para o SUS e ferramentas gratuitas para apoiar a rotina de quem trabalha na saúde.">
     <link rel="canonical" href="https://rotinaacs.com.br/">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="pt_BR">
     <meta property="og:site_name" content="ROTINA ACS">
     <meta property="og:title" content="Ferramentas para ACS | ROTINA ACS">
-    <meta property="og:description" content="Escolha materiais e ferramentas para apoiar a rotina do Agente Comunitário de Saúde.">
+    <meta property="og:description" content="Materiais próprios, Achados para o SUS e ferramentas gratuitas para apoiar quem trabalha na saúde.">
     <meta property="og:url" content="https://rotinaacs.com.br/">
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-926XGX9HB2"></script>
@@ -95,6 +95,21 @@
         }
         .btn-pulse {
             animation: pulse-brand 2.5s infinite;
+        }
+
+        a:focus-visible,
+        button:focus-visible {
+            outline: 3px solid #2dd4bf;
+            outline-offset: 3px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                scroll-behavior: auto !important;
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
         }
     </style>
 </head>
@@ -286,6 +301,40 @@
                 <div class="absolute inset-0 z-30 cursor-pointer" onclick="openSuperkitModal()"></div>
             </article>
 
+        </div>
+    </section>
+
+    <section id="achados" class="max-w-5xl mx-auto px-4 pb-10" aria-labelledby="achados-title">
+        <div class="relative overflow-hidden rounded-[2rem] border border-slate-700 bg-slate-950 px-6 py-8 shadow-soft md:px-10 md:py-10">
+            <div class="absolute -right-16 -top-20 h-56 w-56 rounded-full bg-brand/20 blur-3xl pointer-events-none" aria-hidden="true"></div>
+            <div class="absolute -bottom-20 left-1/3 h-40 w-40 rounded-full bg-blue-700/20 blur-3xl pointer-events-none" aria-hidden="true"></div>
+
+            <div class="relative z-10 grid items-center gap-8 md:grid-cols-[1fr_auto]">
+                <div>
+                    <div class="mb-4 inline-flex items-center gap-2 rounded-full border border-brand/30 bg-brand/10 px-3 py-1.5 text-xs font-extrabold uppercase tracking-wider text-teal-200">
+                        <i data-lucide="sparkles" class="h-4 w-4" aria-hidden="true"></i>
+                        Curadoria ROTINA ACS
+                    </div>
+                    <h2 id="achados-title" class="text-2xl font-black tracking-tight text-white md:text-3xl">Achados para o SUS</h2>
+                    <p class="mt-3 max-w-2xl text-base font-medium leading-relaxed text-slate-300">
+                        Uma seleção de cursos, ferramentas e produtos úteis para quem trabalha ou estuda na área da saúde.
+                    </p>
+                    <div class="mt-5 flex flex-wrap gap-2" aria-label="Categorias dos Achados">
+                        <span class="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-bold text-slate-300">Cursos</span>
+                        <span class="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-bold text-slate-300">Concursos</span>
+                        <span class="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-bold text-slate-300">Trabalho</span>
+                        <span class="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-bold text-slate-300">Tecnologia</span>
+                    </div>
+                    <p class="mt-5 max-w-2xl text-xs font-medium leading-relaxed text-slate-400">
+                        Alguns links podem gerar comissão para o ROTINA ACS, sem custo adicional para você.
+                    </p>
+                </div>
+
+                <a id="btn-achados-hub" href="/achados/" class="cta-btn inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-2xl bg-brand px-6 py-4 font-black text-white shadow-lg shadow-teal-500/20 transition hover:bg-brand-dark md:w-auto md:min-w-52">
+                    Explorar Achados
+                    <i data-lucide="arrow-right" class="h-5 w-5" aria-hidden="true"></i>
+                </a>
+            </div>
         </div>
     </section>
 
@@ -500,6 +549,16 @@
                     });
                 });
             });
+
+            const achadosHubButton = document.getElementById('btn-achados-hub');
+            if (achadosHubButton) {
+                achadosHubButton.addEventListener('click', function() {
+                    gtag('event', 'achados_hub_click', {
+                        'source': 'home',
+                        'destination': 'achados'
+                    });
+                });
+            }
 
             const btnIg = document.getElementById('btn-canal-ig');
             if (btnIg) {
