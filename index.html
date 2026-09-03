@@ -40,22 +40,11 @@
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
                     colors: {
-                        brand: {
-                            DEFAULT: "#14b8a6",
-                            light: "#f0fdfa",
-                            dark: "#0f766e",
-                        },
-                        ink: {
-                            DEFAULT: "#0f172a",
-                        },
-                        action: {
-                            DEFAULT: "#3730a3",
-                            hover: "#312e81",
-                        }
+                        brand: { DEFAULT: "#14b8a6", light: "#f0fdfa", dark: "#0f766e" },
+                        ink: { DEFAULT: "#0f172a" },
+                        action: { DEFAULT: "#3730a3", hover: "#312e81" }
                     },
                     boxShadow: {
                         soft: "0 10px 30px rgba(11,18,32,0.06)",
@@ -67,53 +56,29 @@
     </script>
 
     <style>
-        body {
-            background-color: #f8fafc;
-            color: theme('colors.ink.DEFAULT');
-            -webkit-font-smoothing: antialiased;
-        }
-
-        details > summary { list-style: none; }
-        details > summary::-webkit-details-marker { display: none; }
-        .hide-scrollbar::-webkit-scrollbar { display: none; }
-        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-
-        .cta-btn:active { transform: scale(0.98); }
-
-        .lift-card {
-            transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
-            will-change: transform;
-        }
-        .lift-card:hover { transform: translateY(-4px); }
-        .lift-card:active { transform: translateY(-1px) scale(.995); }
-
-        @keyframes pulse-brand {
-            0% { box-shadow: 0 0 0 0 rgba(20, 184, 166, 0.4); }
-            70% { box-shadow: 0 0 0 15px rgba(20, 184, 166, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(20, 184, 166, 0); }
-        }
-        .btn-pulse { animation: pulse-brand 2.5s infinite; }
-
-        a:focus-visible,
-        button:focus-visible {
-            outline: 3px solid #2dd4bf;
-            outline-offset: 3px;
-        }
-
+        body { background-color:#f8fafc; color:theme('colors.ink.DEFAULT'); -webkit-font-smoothing:antialiased; }
+        details > summary { list-style:none; }
+        details > summary::-webkit-details-marker { display:none; }
+        .hide-scrollbar::-webkit-scrollbar { display:none; }
+        .hide-scrollbar { -ms-overflow-style:none; scrollbar-width:none; }
+        .cta-btn:active { transform:scale(0.98); }
+        .lift-card { transition:transform .22s ease, box-shadow .22s ease, border-color .22s ease; will-change:transform; }
+        .lift-card:hover { transform:translateY(-4px); }
+        .lift-card:active { transform:translateY(-1px) scale(.995); }
+        .banner-bg { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center; }
+        .banner-overlay { position:absolute; inset:0; background:linear-gradient(90deg,rgba(2,6,23,.90) 0%,rgba(2,6,23,.72) 48%,rgba(2,6,23,.48) 100%); }
+        .radar-overlay { position:absolute; inset:0; background:linear-gradient(90deg,rgba(15,23,42,.88) 0%,rgba(15,23,42,.66) 52%,rgba(15,23,42,.45) 100%); }
+        @keyframes pulse-brand { 0%{box-shadow:0 0 0 0 rgba(20,184,166,.4)}70%{box-shadow:0 0 0 15px rgba(20,184,166,0)}100%{box-shadow:0 0 0 0 rgba(20,184,166,0)} }
+        .btn-pulse { animation:pulse-brand 2.5s infinite; }
+        a:focus-visible,button:focus-visible { outline:3px solid #2dd4bf; outline-offset:3px; }
         @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after {
-                scroll-behavior: auto !important;
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
-            .lift-card:hover, .lift-card:active { transform: none; }
+            *,*::before,*::after { scroll-behavior:auto!important; animation-duration:.01ms!important; animation-iteration-count:1!important; transition-duration:.01ms!important; }
+            .lift-card:hover,.lift-card:active { transform:none; }
         }
     </style>
 </head>
 
 <body class="min-h-screen pb-10">
-
     <header class="bg-white border-b border-black/5 sticky top-0 z-50">
         <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
             <a href="#top" class="flex items-center gap-3 min-w-0">
@@ -125,10 +90,8 @@
                     <div class="text-xs text-gray-500 font-medium truncate">Escolha seu material</div>
                 </div>
             </a>
-
             <a href="#selecionar" class="inline-flex items-center gap-2 bg-ink hover:bg-slate-800 text-white font-bold px-5 py-2.5 rounded-xl shadow-softer transition whitespace-nowrap cta-btn">
-                <i data-lucide="mouse-pointer-click" class="w-4 h-4"></i>
-                <span>Escolher</span>
+                <i data-lucide="mouse-pointer-click" class="w-4 h-4"></i><span>Escolher</span>
             </a>
         </div>
     </header>
@@ -137,52 +100,33 @@
         <h1 class="text-3xl md:text-5xl font-black tracking-tight text-ink leading-tight mb-3">Escolha seu material e vá direto.</h1>
         <p class="text-gray-600 font-medium md:text-lg mb-6">As opções estão logo abaixo.</p>
         <div class="flex flex-wrap justify-center gap-3">
-            <a href="#selecionar" class="inline-flex items-center gap-2 bg-ink hover:bg-slate-800 text-white font-bold px-6 py-3 rounded-2xl shadow-softer transition cta-btn">
-                <i data-lucide="layout-grid" class="w-5 h-5"></i>
-                Ver as opções
-            </a>
+            <a href="#selecionar" class="inline-flex items-center gap-2 bg-ink hover:bg-slate-800 text-white font-bold px-6 py-3 rounded-2xl shadow-softer transition cta-btn"><i data-lucide="layout-grid" class="w-5 h-5"></i>Ver as opções</a>
         </div>
     </section>
 
     <section id="selecionar" class="max-w-5xl mx-auto px-4 pt-4 pb-12">
-        <div class="text-center mb-6">
-            <p class="text-lg md:text-xl font-bold text-ink tracking-tight">SuperKit para campo. APS 360 para regra e pontuação.</p>
-        </div>
-
+        <div class="text-center mb-6"><p class="text-lg md:text-xl font-bold text-ink tracking-tight">SuperKit para campo. APS 360 para regra e pontuação.</p></div>
         <div class="flex gap-5 overflow-x-auto hide-scrollbar pb-6 -mx-4 px-4 md:mx-0 md:px-0 md:grid md:grid-cols-2 md:overflow-visible">
             <article class="lift-card relative group min-w-[85%] sm:min-w-[320px] md:min-w-0 bg-white rounded-3xl shadow-soft hover:shadow-lg border border-black/5 hover:border-brand/30 flex flex-col h-full">
-                <div class="p-3 pb-0">
-                    <img src="assets/superkit.jpg" alt="SuperKit ACS" class="w-full h-[220px] object-cover rounded-2xl border border-black/5">
-                </div>
+                <div class="p-3 pb-0"><img src="assets/superkit.jpg" alt="SuperKit ACS" class="w-full h-[220px] object-cover rounded-2xl border border-black/5"></div>
                 <div class="p-6 md:p-8 flex flex-col flex-grow relative z-20">
                     <div class="flex items-start justify-between gap-4 mb-4">
-                        <div>
-                            <h3 class="text-2xl font-black text-ink">SuperKit ACS</h3>
-                            <p class="mt-2 text-gray-600 font-medium leading-snug">Acompanhamento, registro e conferência sem depender da memória.</p>
-                        </div>
+                        <div><h3 class="text-2xl font-black text-ink">SuperKit ACS</h3><p class="mt-2 text-gray-600 font-medium leading-snug">Acompanhamento, registro e conferência sem depender da memória.</p></div>
                         <div class="w-12 h-12 rounded-2xl bg-brand-light flex items-center justify-center shrink-0 border border-brand/20"><i data-lucide="clipboard-check" class="w-6 h-6 text-brand"></i></div>
                     </div>
                     <ul class="space-y-3 text-sm text-gray-700 font-medium mb-8">
                         <li class="flex items-start gap-2"><i data-lucide="check" class="w-5 h-5 text-brand shrink-0"></i><span>Fichas de acompanhamento atualizadas para o campo</span></li>
                         <li class="flex items-start gap-2"><i data-lucide="check" class="w-5 h-5 text-brand shrink-0"></i><span>7 checklists dos indicadores (C1 ao C7) e rotina</span></li>
                     </ul>
-                    <div class="mt-auto relative">
-                        <a data-dest="superkit" href="https://superkit.rotinaacs.com.br/" target="_blank" rel="noopener noreferrer" class="inline-flex w-full justify-center items-center gap-2 bg-brand hover:bg-brand-dark text-white font-black py-4 rounded-2xl transition shadow-lg shadow-teal-500/20 cta-btn btn-pulse"><i data-lucide="external-link" class="w-5 h-5"></i>Ir para o SuperKit ACS</a>
-                        <p class="mt-4 text-[11px] text-gray-400 font-medium text-center">A evolução operacional do material de campo.</p>
-                    </div>
+                    <div class="mt-auto relative"><a data-dest="superkit" href="https://superkit.rotinaacs.com.br/" target="_blank" rel="noopener noreferrer" class="inline-flex w-full justify-center items-center gap-2 bg-brand hover:bg-brand-dark text-white font-black py-4 rounded-2xl transition shadow-lg shadow-teal-500/20 cta-btn btn-pulse"><i data-lucide="external-link" class="w-5 h-5"></i>Ir para o SuperKit ACS</a><p class="mt-4 text-[11px] text-gray-400 font-medium text-center">A evolução operacional do material de campo.</p></div>
                 </div>
             </article>
 
             <article class="lift-card relative group min-w-[85%] sm:min-w-[320px] md:min-w-0 bg-white rounded-3xl shadow-soft hover:shadow-lg border border-black/5 hover:border-action/30 flex flex-col h-full">
-                <div class="p-3 pb-0">
-                    <img src="assets/manual-aps360.jpg" alt="Manual Básico APS 360" class="w-full h-[220px] object-cover rounded-2xl border border-black/5">
-                </div>
+                <div class="p-3 pb-0"><img src="assets/manual-aps360.jpg" alt="Manual Básico APS 360" class="w-full h-[220px] object-cover rounded-2xl border border-black/5"></div>
                 <div class="p-6 md:p-8 flex flex-col flex-grow relative z-20">
                     <div class="flex items-start justify-between gap-4 mb-4">
-                        <div>
-                            <h3 class="text-2xl font-black text-ink">Manual Básico APS 360</h3>
-                            <p class="mt-2 text-gray-600 font-medium leading-snug">Para entender regra, validação e o que conta na pontuação.</p>
-                        </div>
+                        <div><h3 class="text-2xl font-black text-ink">Manual Básico APS 360</h3><p class="mt-2 text-gray-600 font-medium leading-snug">Para entender regra, validação e o que conta na pontuação.</p></div>
                         <div class="w-12 h-12 rounded-2xl bg-indigo-50 flex items-center justify-center shrink-0 border border-action/20"><i data-lucide="book-open" class="w-6 h-6 text-action"></i></div>
                     </div>
                     <div class="inline-flex items-start gap-1.5 bg-indigo-50 text-action text-[10px] font-bold uppercase tracking-wide px-2.5 py-2 rounded-lg border border-action/20 mb-6"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 shrink-0"></i><span>Material atualizado com as notas metodológicas dos indicadores</span></div>
@@ -190,26 +134,23 @@
                         <li class="flex items-start gap-2"><i data-lucide="check" class="w-5 h-5 text-action shrink-0"></i><span>Entenda janela móvel, vínculo, cadastro e acompanhamento</span></li>
                         <li class="flex items-start gap-2"><i data-lucide="check" class="w-5 h-5 text-action shrink-0"></i><span>Leitura direta para entender melhor a lógica da APS 360</span></li>
                     </ul>
-                    <div class="mt-auto relative">
-                        <a data-dest="aps360" href="https://leothaylor.github.io/manual-basico-APS360TikTok/" target="_blank" rel="noopener noreferrer" class="inline-flex w-full justify-center items-center gap-2 bg-action hover:bg-[#4338ca] text-white font-black py-4 rounded-2xl transition shadow-lg shadow-blue-900/20 cta-btn"><i data-lucide="external-link" class="w-5 h-5"></i>Ir para o Manual APS 360</a>
-                        <p class="mt-4 text-[11px] text-gray-400 font-medium text-center">Para quem quer entender melhor por que a produção não contou como esperava.</p>
-                    </div>
+                    <div class="mt-auto relative"><a data-dest="aps360" href="https://leothaylor.github.io/manual-basico-APS360TikTok/" target="_blank" rel="noopener noreferrer" class="inline-flex w-full justify-center items-center gap-2 bg-action hover:bg-[#4338ca] text-white font-black py-4 rounded-2xl transition shadow-lg shadow-blue-900/20 cta-btn"><i data-lucide="external-link" class="w-5 h-5"></i>Ir para o Manual APS 360</a><p class="mt-4 text-[11px] text-gray-400 font-medium text-center">Para quem quer entender melhor por que a produção não contou como esperava.</p></div>
                 </div>
             </article>
         </div>
     </section>
 
     <section id="achados" class="max-w-5xl mx-auto px-4 pb-10" aria-labelledby="achados-title">
-        <div class="lift-card relative overflow-hidden rounded-[2rem] border border-slate-700 bg-slate-950 px-6 py-8 shadow-soft md:px-10 md:py-10">
-            <div class="absolute -right-16 -top-20 h-56 w-56 rounded-full bg-brand/20 blur-3xl pointer-events-none" aria-hidden="true"></div>
-            <div class="absolute -bottom-20 left-1/3 h-40 w-40 rounded-full bg-blue-700/20 blur-3xl pointer-events-none" aria-hidden="true"></div>
-            <div class="relative z-10 grid items-center gap-8 md:grid-cols-[1fr_auto]">
+        <div class="lift-card relative overflow-hidden rounded-[2rem] border border-slate-700 bg-slate-950 px-6 py-8 shadow-soft md:px-10 md:py-10 min-h-[300px] flex items-center">
+            <img src="assets/banner-achados-sus.png" alt="Profissionais do SUS reunidos" class="banner-bg" />
+            <div class="banner-overlay" aria-hidden="true"></div>
+            <div class="relative z-10 grid items-center gap-8 md:grid-cols-[1fr_auto] w-full">
                 <div>
-                    <div class="mb-4 inline-flex items-center gap-2 rounded-full border border-brand/30 bg-brand/10 px-3 py-1.5 text-xs font-extrabold uppercase tracking-wider text-teal-200"><i data-lucide="sparkles" class="h-4 w-4"></i>Curadoria ROTINA ACS</div>
-                    <h2 id="achados-title" class="text-2xl font-black tracking-tight text-white md:text-3xl">Achados para o SUS</h2>
-                    <p class="mt-3 max-w-2xl text-base font-medium leading-relaxed text-slate-300">Uma seleção de cursos, ferramentas e produtos úteis para quem trabalha ou estuda na área da saúde.</p>
-                    <div class="mt-5 flex flex-wrap gap-2"><span class="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-bold text-slate-300">Cursos</span><span class="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-bold text-slate-300">Concursos</span><span class="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-bold text-slate-300">Trabalho</span><span class="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-bold text-slate-300">Tecnologia</span></div>
-                    <p class="mt-5 max-w-2xl text-xs font-medium leading-relaxed text-slate-400">Alguns links podem gerar comissão para o ROTINA ACS, sem custo adicional para você.</p>
+                    <div class="mb-4 inline-flex items-center gap-2 rounded-full border border-brand/30 bg-slate-950/55 backdrop-blur-sm px-3 py-1.5 text-xs font-extrabold uppercase tracking-wider text-teal-200"><i data-lucide="sparkles" class="h-4 w-4"></i>Curadoria ROTINA ACS</div>
+                    <h2 id="achados-title" class="text-2xl font-black tracking-tight text-white md:text-3xl drop-shadow-sm">Achados para o SUS</h2>
+                    <p class="mt-3 max-w-2xl text-base font-medium leading-relaxed text-slate-100 drop-shadow-sm">Uma seleção de cursos, ferramentas e produtos úteis para quem trabalha ou estuda na área da saúde.</p>
+                    <div class="mt-5 flex flex-wrap gap-2"><span class="rounded-full border border-white/15 bg-slate-950/50 backdrop-blur-sm px-3 py-1 text-xs font-bold text-slate-100">Cursos</span><span class="rounded-full border border-white/15 bg-slate-950/50 backdrop-blur-sm px-3 py-1 text-xs font-bold text-slate-100">Concursos</span><span class="rounded-full border border-white/15 bg-slate-950/50 backdrop-blur-sm px-3 py-1 text-xs font-bold text-slate-100">Trabalho</span><span class="rounded-full border border-white/15 bg-slate-950/50 backdrop-blur-sm px-3 py-1 text-xs font-bold text-slate-100">Tecnologia</span></div>
+                    <p class="mt-5 max-w-2xl text-xs font-medium leading-relaxed text-slate-200">Alguns links podem gerar comissão para o ROTINA ACS, sem custo adicional para você.</p>
                 </div>
                 <a id="btn-achados-hub" href="/achados/" class="cta-btn inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-2xl bg-brand px-6 py-4 font-black text-white shadow-lg shadow-teal-500/20 transition hover:bg-brand-dark md:w-auto md:min-w-52">Explorar Achados<i data-lucide="arrow-right" class="h-5 w-5"></i></a>
             </div>
@@ -217,12 +158,13 @@
     </section>
 
     <section id="comunidade" class="max-w-5xl mx-auto px-4 pb-10">
-        <div class="lift-card bg-ink rounded-[2rem] shadow-soft border border-slate-800 p-8 md:p-12 text-center relative overflow-hidden">
-            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-md h-32 bg-brand/20 blur-[80px] rounded-full pointer-events-none"></div>
+        <div class="lift-card rounded-[2rem] shadow-soft border border-slate-800 text-center relative overflow-hidden min-h-[320px] flex items-center justify-center p-8 md:p-12">
+            <img src="assets/banner-radar-vacinal.png" alt="Identidade visual do Radar Vacinal" class="banner-bg" />
+            <div class="radar-overlay" aria-hidden="true"></div>
             <div class="relative z-10">
-                <div class="w-16 h-16 bg-slate-800/50 rounded-2xl border border-white/10 flex items-center justify-center mx-auto mb-5"><i data-lucide="radar" class="w-8 h-8 text-brand"></i></div>
-                <h2 class="text-2xl md:text-3xl font-black text-white tracking-tight mb-3">Ferramenta Grátis para a Comunidade</h2>
-                <p class="text-slate-300 font-medium mb-8 max-w-xl mx-auto">Acesse o Radar Vacinal. Organize por apelido as crianças da sua microárea e veja rapidamente quem está em atraso ou em dia.</p>
+                <div class="w-16 h-16 bg-slate-950/50 backdrop-blur-sm rounded-2xl border border-white/10 flex items-center justify-center mx-auto mb-5"><i data-lucide="radar" class="w-8 h-8 text-brand"></i></div>
+                <h2 class="text-2xl md:text-3xl font-black text-white tracking-tight mb-3 drop-shadow-sm">Ferramenta Grátis para a Comunidade</h2>
+                <p class="text-slate-100 font-medium mb-8 max-w-xl mx-auto drop-shadow-sm">Acesse o Radar Vacinal. Organize por apelido as crianças da sua microárea e veja rapidamente quem está em atraso ou em dia.</p>
                 <a data-dest="radar" href="https://leothaylor.github.io/RadarvacinaACS/" target="_blank" rel="noopener noreferrer" class="inline-flex justify-center items-center gap-2 bg-brand hover:bg-brand-light hover:text-brand-dark text-white font-black px-8 py-4 rounded-2xl transition shadow-lg shadow-brand/20 cta-btn">Acessar Radar Vacinal Grátis</a>
             </div>
         </div>
@@ -240,9 +182,7 @@
     </section>
 
     <footer class="border-t border-black/5 bg-white">
-        <div class="max-w-5xl mx-auto px-4 py-6 flex flex-col md:flex-row items-center justify-center gap-4">
-            <div class="text-sm text-gray-500 font-medium text-center">&copy; <span id="year"></span> ACS Tático. Todos os direitos reservados.</div>
-        </div>
+        <div class="max-w-5xl mx-auto px-4 py-6 flex flex-col md:flex-row items-center justify-center gap-4"><div class="text-sm text-gray-500 font-medium text-center">&copy; <span id="year"></span> ACS Tático. Todos os direitos reservados.</div></div>
     </footer>
 
     <script>
@@ -257,25 +197,12 @@
             document.querySelectorAll("a[data-dest]").forEach(function(anchor){const productKey=anchor.getAttribute("data-dest");anchor.href=buildTrackedUrl(anchor.href,productKey);});
         })();
     </script>
-
-    <script>
-        lucide.createIcons();
-        document.getElementById("year").textContent = new Date().getFullYear();
-    </script>
-
+    <script>lucide.createIcons();document.getElementById("year").textContent=new Date().getFullYear();</script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const productLinks = document.querySelectorAll('a[data-dest]');
-            productLinks.forEach(link => {
-                link.addEventListener('click', function() {
-                    const produtoID = this.getAttribute('data-dest');
-                    const nomeProduto = produtoID === 'superkit' ? 'SuperKit ACS' : (produtoID === 'radar' ? 'Radar Vacinal Grátis' : 'Manual APS 360');
-                    gtag('event', 'select_item', {'item_list_name':'vitrine_principal','items':[{'item_id':produtoID,'item_name':nomeProduto}]});
-                });
-            });
-
-            const achadosHubButton = document.getElementById('btn-achados-hub');
-            if (achadosHubButton) achadosHubButton.addEventListener('click', function(){gtag('event','achados_hub_click',{'source':'home','destination':'achados'});});
+            const productLinks=document.querySelectorAll('a[data-dest]');
+            productLinks.forEach(link=>{link.addEventListener('click',function(){const produtoID=this.getAttribute('data-dest');const nomeProduto=produtoID==='superkit'?'SuperKit ACS':(produtoID==='radar'?'Radar Vacinal Grátis':'Manual APS 360');gtag('event','select_item',{'item_list_name':'vitrine_principal','items':[{'item_id':produtoID,'item_name':nomeProduto}]});});});
+            const achadosHubButton=document.getElementById('btn-achados-hub');if(achadosHubButton)achadosHubButton.addEventListener('click',function(){gtag('event','achados_hub_click',{'source':'home','destination':'achados'});});
             const btnIg=document.getElementById('btn-canal-ig');if(btnIg)btnIg.addEventListener('click',function(){gtag('event','click_canal_instagram',{'origem':'vitrine_canais'});gtag('event','click_suporte_ig',{'origem':'vitrine_canais'});});
             const btnTiktok=document.getElementById('btn-canal-tiktok');if(btnTiktok)btnTiktok.addEventListener('click',function(){gtag('event','click_canal_tiktok',{'origem':'vitrine_canais'});});
             const anchorLinks=document.querySelectorAll('a[href^="#"]');anchorLinks.forEach(link=>{link.addEventListener('click',function(){gtag('event','navegacao_vitrine',{'destino_secao':this.getAttribute('href')});});});
