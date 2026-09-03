@@ -45,16 +45,16 @@
                     },
                     colors: {
                         brand: {
-                            DEFAULT: "#14b8a6", // teal-500
-                            light: "#f0fdfa", // teal-50
-                            dark: "#0f766e", // teal-700
+                            DEFAULT: "#14b8a6",
+                            light: "#f0fdfa",
+                            dark: "#0f766e",
                         },
                         ink: {
-                            DEFAULT: "#0f172a", // slate-900
+                            DEFAULT: "#0f172a",
                         },
                         action: {
-                            DEFAULT: "#1e3a8a", // blue-900
-                            hover: "#1e40af",
+                            DEFAULT: "#3730a3",
+                            hover: "#312e81",
                         }
                     },
                     boxShadow: {
@@ -75,27 +75,24 @@
 
         details > summary { list-style: none; }
         details > summary::-webkit-details-marker { display: none; }
-        
-        /* Ocultar barra de rolagem mas manter funcionamento */
-        .hide-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
-        .hide-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
         .cta-btn:active { transform: scale(0.98); }
 
-        /* 🟢 Animação Breathing para Destaque Principal */
+        .lift-card {
+            transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+            will-change: transform;
+        }
+        .lift-card:hover { transform: translateY(-4px); }
+        .lift-card:active { transform: translateY(-1px) scale(.995); }
+
         @keyframes pulse-brand {
             0% { box-shadow: 0 0 0 0 rgba(20, 184, 166, 0.4); }
             70% { box-shadow: 0 0 0 15px rgba(20, 184, 166, 0); }
             100% { box-shadow: 0 0 0 0 rgba(20, 184, 166, 0); }
         }
-        .btn-pulse {
-            animation: pulse-brand 2.5s infinite;
-        }
+        .btn-pulse { animation: pulse-brand 2.5s infinite; }
 
         a:focus-visible,
         button:focus-visible {
@@ -110,6 +107,7 @@
                 animation-iteration-count: 1 !important;
                 transition-duration: 0.01ms !important;
             }
+            .lift-card:hover, .lift-card:active { transform: none; }
         }
     </style>
 </head>
@@ -136,14 +134,8 @@
     </header>
 
     <section id="top" class="max-w-5xl mx-auto px-4 pt-8 pb-6 text-center">
-        <h1 class="text-3xl md:text-5xl font-black tracking-tight text-ink leading-tight mb-3">
-            Escolha seu material e vá direto.
-        </h1>
-
-        <p class="text-gray-600 font-medium md:text-lg mb-6">
-            As opções estão logo abaixo.
-        </p>
-
+        <h1 class="text-3xl md:text-5xl font-black tracking-tight text-ink leading-tight mb-3">Escolha seu material e vá direto.</h1>
+        <p class="text-gray-600 font-medium md:text-lg mb-6">As opções estão logo abaixo.</p>
         <div class="flex flex-wrap justify-center gap-3">
             <a href="#selecionar" class="inline-flex items-center gap-2 bg-ink hover:bg-slate-800 text-white font-bold px-6 py-3 rounded-2xl shadow-softer transition cta-btn">
                 <i data-lucide="layout-grid" class="w-5 h-5"></i>
@@ -154,374 +146,115 @@
 
     <section id="selecionar" class="max-w-5xl mx-auto px-4 pt-4 pb-12">
         <div class="text-center mb-6">
-            <p class="text-lg md:text-xl font-bold text-ink tracking-tight">
-                SuperKit para campo. APS 360 para regra e pontuação.
-            </p>
+            <p class="text-lg md:text-xl font-bold text-ink tracking-tight">SuperKit para campo. APS 360 para regra e pontuação.</p>
         </div>
 
         <div class="flex gap-5 overflow-x-auto hide-scrollbar pb-6 -mx-4 px-4 md:mx-0 md:px-0 md:grid md:grid-cols-2 md:overflow-visible">
-            
-            <!-- CARD 1: SUPERKIT ACS (NO LUGAR DO ANTIGO KIT) -->
-            <article class="relative group min-w-[85%] sm:min-w-[320px] md:min-w-0 bg-white rounded-3xl shadow-soft hover:shadow-lg border border-black/5 hover:border-brand/30 transition-all flex flex-col h-full">
+            <article class="lift-card relative group min-w-[85%] sm:min-w-[320px] md:min-w-0 bg-white rounded-3xl shadow-soft hover:shadow-lg border border-black/5 hover:border-brand/30 flex flex-col h-full">
                 <div class="p-3 pb-0">
-                    <img src="assets/superkit.jpg" alt="SuperKit ACS" class="w-full h-[220px] object-cover rounded-2xl border border-black/5" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22400%22><rect width=%22800%22 height=%22400%22 fill=%22%23e2e8f0%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22sans-serif%22 font-weight=%22bold%22 fill=%22%2394a3b8%22>Capa do SuperKit ACS</text></svg>'">
+                    <img src="assets/superkit.jpg" alt="SuperKit ACS" class="w-full h-[220px] object-cover rounded-2xl border border-black/5">
                 </div>
-                
                 <div class="p-6 md:p-8 flex flex-col flex-grow relative z-20">
                     <div class="flex items-start justify-between gap-4 mb-4">
                         <div>
                             <h3 class="text-2xl font-black text-ink">SuperKit ACS</h3>
-                            <p class="mt-2 text-gray-600 font-medium leading-snug">
-                                Acompanhamento, registro e conferência sem depender da memória.
-                            </p>
+                            <p class="mt-2 text-gray-600 font-medium leading-snug">Acompanhamento, registro e conferência sem depender da memória.</p>
                         </div>
-                        <div class="w-12 h-12 rounded-2xl bg-brand-light flex items-center justify-center shrink-0 border border-brand/20">
-                            <i data-lucide="clipboard-check" class="w-6 h-6 text-brand"></i>
-                        </div>
+                        <div class="w-12 h-12 rounded-2xl bg-brand-light flex items-center justify-center shrink-0 border border-brand/20"><i data-lucide="clipboard-check" class="w-6 h-6 text-brand"></i></div>
                     </div>
-
                     <ul class="space-y-3 text-sm text-gray-700 font-medium mb-8">
-                        <li class="flex items-start gap-2">
-                            <i data-lucide="check" class="w-5 h-5 text-brand shrink-0"></i>
-                            <span>Fichas de acompanhamento atualizadas para o campo</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <i data-lucide="check" class="w-5 h-5 text-brand shrink-0"></i>
-                            <span>7 checklists dos indicadores (C1 ao C7) e rotina</span>
-                        </li>
+                        <li class="flex items-start gap-2"><i data-lucide="check" class="w-5 h-5 text-brand shrink-0"></i><span>Fichas de acompanhamento atualizadas para o campo</span></li>
+                        <li class="flex items-start gap-2"><i data-lucide="check" class="w-5 h-5 text-brand shrink-0"></i><span>7 checklists dos indicadores (C1 ao C7) e rotina</span></li>
                     </ul>
-
                     <div class="mt-auto relative">
-                        <a data-dest="superkit" href="https://superkit.rotinaacs.com.br/" target="_blank" rel="noopener noreferrer" class="inline-flex w-full justify-center items-center gap-2 bg-brand hover:bg-brand-dark text-white font-black py-4 rounded-2xl transition shadow-lg shadow-teal-500/20 cta-btn btn-pulse">
-                            <i data-lucide="external-link" class="w-5 h-5"></i>
-                            Ir para o SuperKit ACS
-                        </a>
-                        <p class="mt-4 text-[11px] text-gray-400 font-medium text-center">
-                            A evolução operacional do material de campo.
-                        </p>
+                        <a data-dest="superkit" href="https://superkit.rotinaacs.com.br/" target="_blank" rel="noopener noreferrer" class="inline-flex w-full justify-center items-center gap-2 bg-brand hover:bg-brand-dark text-white font-black py-4 rounded-2xl transition shadow-lg shadow-teal-500/20 cta-btn btn-pulse"><i data-lucide="external-link" class="w-5 h-5"></i>Ir para o SuperKit ACS</a>
+                        <p class="mt-4 text-[11px] text-gray-400 font-medium text-center">A evolução operacional do material de campo.</p>
                     </div>
                 </div>
             </article>
 
-            <!-- CARD 2: APS 360 -->
-            <article class="relative group min-w-[85%] sm:min-w-[320px] md:min-w-0 bg-white rounded-3xl shadow-soft hover:shadow-lg border border-black/5 hover:border-action/30 transition-all flex flex-col h-full">
+            <article class="lift-card relative group min-w-[85%] sm:min-w-[320px] md:min-w-0 bg-white rounded-3xl shadow-soft hover:shadow-lg border border-black/5 hover:border-action/30 flex flex-col h-full">
                 <div class="p-3 pb-0">
-                    <img src="assets/manual-aps360.jpg" alt="Manual Básico APS 360" class="w-full h-[220px] object-cover rounded-2xl border border-black/5" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22400%22><rect width=%22800%22 height=%22400%22 fill=%22%23e2e8f0%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22sans-serif%22 font-weight=%22bold%22 fill=%22%2394a3b8%22>Capa do APS 360</text></svg>'">
+                    <img src="assets/manual-aps360.jpg" alt="Manual Básico APS 360" class="w-full h-[220px] object-cover rounded-2xl border border-black/5">
                 </div>
-                
                 <div class="p-6 md:p-8 flex flex-col flex-grow relative z-20">
                     <div class="flex items-start justify-between gap-4 mb-4">
                         <div>
                             <h3 class="text-2xl font-black text-ink">Manual Básico APS 360</h3>
-                            <p class="mt-2 text-gray-600 font-medium leading-snug">
-                                Para entender regra, validação e o que conta na pontuação.
-                            </p>
+                            <p class="mt-2 text-gray-600 font-medium leading-snug">Para entender regra, validação e o que conta na pontuação.</p>
                         </div>
-                        <div class="w-12 h-12 rounded-2xl bg-indigo-50 flex items-center justify-center shrink-0 border border-action/20">
-                            <i data-lucide="book-open" class="w-6 h-6 text-action"></i>
-                        </div>
+                        <div class="w-12 h-12 rounded-2xl bg-indigo-50 flex items-center justify-center shrink-0 border border-action/20"><i data-lucide="book-open" class="w-6 h-6 text-action"></i></div>
                     </div>
-
-                    <div class="inline-flex items-start gap-1.5 bg-indigo-50 text-action text-[10px] font-bold uppercase tracking-wide px-2.5 py-2 rounded-lg border border-action/20 mb-6">
-                        <i data-lucide="check-circle-2" class="w-3.5 h-3.5 shrink-0"></i>
-                        <span>Material atualizado com as notas metodológicas dos indicadores</span>
-                    </div>
-
+                    <div class="inline-flex items-start gap-1.5 bg-indigo-50 text-action text-[10px] font-bold uppercase tracking-wide px-2.5 py-2 rounded-lg border border-action/20 mb-6"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 shrink-0"></i><span>Material atualizado com as notas metodológicas dos indicadores</span></div>
                     <ul class="space-y-3 text-sm text-gray-700 font-medium mb-8">
-                        <li class="flex items-start gap-2">
-                            <i data-lucide="check" class="w-5 h-5 text-action shrink-0"></i>
-                            <span>Entenda janela móvel, vínculo, cadastro e acompanhamento</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <i data-lucide="check" class="w-5 h-5 text-action shrink-0"></i>
-                            <span>Leitura direta para entender melhor a lógica da APS 360</span>
-                        </li>
+                        <li class="flex items-start gap-2"><i data-lucide="check" class="w-5 h-5 text-action shrink-0"></i><span>Entenda janela móvel, vínculo, cadastro e acompanhamento</span></li>
+                        <li class="flex items-start gap-2"><i data-lucide="check" class="w-5 h-5 text-action shrink-0"></i><span>Leitura direta para entender melhor a lógica da APS 360</span></li>
                     </ul>
-
                     <div class="mt-auto relative">
-                        <a data-dest="aps360" href="https://leothaylor.github.io/manual-basico-APS360TikTok/" target="_blank" rel="noopener noreferrer" class="inline-flex w-full justify-center items-center gap-2 bg-action hover:bg-action-hover text-white font-black py-4 rounded-2xl transition shadow-lg shadow-blue-900/20 cta-btn">
-                            <i data-lucide="external-link" class="w-5 h-5"></i>
-                            Ir para o Manual APS 360
-                        </a>
-                        <p class="mt-4 text-[11px] text-gray-400 font-medium text-center">
-                            Para quem quer entender melhor por que a produção não contou como esperava.
-                        </p>
+                        <a data-dest="aps360" href="https://leothaylor.github.io/manual-basico-APS360TikTok/" target="_blank" rel="noopener noreferrer" class="inline-flex w-full justify-center items-center gap-2 bg-action hover:bg-[#4338ca] text-white font-black py-4 rounded-2xl transition shadow-lg shadow-blue-900/20 cta-btn"><i data-lucide="external-link" class="w-5 h-5"></i>Ir para o Manual APS 360</a>
+                        <p class="mt-4 text-[11px] text-gray-400 font-medium text-center">Para quem quer entender melhor por que a produção não contou como esperava.</p>
                     </div>
                 </div>
             </article>
-
-            <!-- CARD 3: SUPERKIT (MANTIDO OCULTO PARA PRESERVAR A ESTRUTURA) -->
-            <article class="hidden min-w-[85%] sm:min-w-[320px] md:min-w-0 bg-white rounded-3xl shadow-soft hover:shadow-lg border border-black/5 transition-all flex flex-col h-full relative group">
-                <div class="absolute top-4 right-4 bg-slate-800 text-white text-[10px] font-black uppercase px-3.5 py-1.5 rounded-full z-20 tracking-widest shadow-md border border-slate-700">
-                    Oficial
-                </div>
-                
-                <div class="p-3 pb-0 relative z-20">
-                    <div class="w-full h-[220px] bg-slate-100 rounded-2xl border border-black/5 flex flex-col items-center justify-center text-slate-300">
-                        <i data-lucide="badge-check" class="w-10 h-10 mb-2"></i>
-                        <span class="text-xs font-bold uppercase tracking-widest text-slate-400">Acesso disponível</span>
-                    </div>
-                </div>
-                
-                <div class="p-6 md:p-8 flex flex-col flex-grow relative z-20 pointer-events-none">
-                    <div class="flex items-start justify-between gap-4 mb-4">
-                        <div>
-                            <h3 class="text-2xl font-black text-ink">SuperKit ACS</h3>
-                            <p class="mt-2 text-gray-600 font-medium leading-snug">
-                                Versão oficial validada e pronta para apoiar a rotina do ACS.
-                            </p>
-                        </div>
-                        <div class="w-12 h-12 rounded-2xl bg-slate-50 flex items-center justify-center shrink-0 border border-slate-200">
-                            <i data-lucide="zap" class="w-6 h-6 text-slate-400"></i>
-                        </div>
-                    </div>
-
-                    <ul class="space-y-3 text-sm text-gray-400 font-medium mb-8">
-                        <li class="flex items-start gap-2">
-                            <i data-lucide="check" class="w-5 h-5 text-slate-300 shrink-0"></i>
-                            <span>Evolução completa do material de campo</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <i data-lucide="check" class="w-5 h-5 text-slate-300 shrink-0"></i>
-                            <span>Novas ferramentas táticas exclusivas</span>
-                        </li>
-                    </ul>
-
-                    <div class="mt-auto relative">
-                        <button class="inline-flex w-full justify-center items-center gap-2 bg-slate-100 text-slate-400 font-black py-4 rounded-2xl transition">
-                            <i data-lucide="external-link" class="w-5 h-5"></i>
-                            Conhecer a versão oficial
-                        </button>
-                        <p class="mt-4 text-[12px] text-gray-400 font-black text-center uppercase tracking-widest">
-                            R$ 29,90
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="absolute inset-0 z-30 cursor-pointer" onclick="openSuperkitModal()"></div>
-            </article>
-
         </div>
     </section>
 
     <section id="achados" class="max-w-5xl mx-auto px-4 pb-10" aria-labelledby="achados-title">
-        <div class="relative overflow-hidden rounded-[2rem] border border-slate-700 bg-slate-950 px-6 py-8 shadow-soft md:px-10 md:py-10">
+        <div class="lift-card relative overflow-hidden rounded-[2rem] border border-slate-700 bg-slate-950 px-6 py-8 shadow-soft md:px-10 md:py-10">
             <div class="absolute -right-16 -top-20 h-56 w-56 rounded-full bg-brand/20 blur-3xl pointer-events-none" aria-hidden="true"></div>
             <div class="absolute -bottom-20 left-1/3 h-40 w-40 rounded-full bg-blue-700/20 blur-3xl pointer-events-none" aria-hidden="true"></div>
-
             <div class="relative z-10 grid items-center gap-8 md:grid-cols-[1fr_auto]">
                 <div>
-                    <div class="mb-4 inline-flex items-center gap-2 rounded-full border border-brand/30 bg-brand/10 px-3 py-1.5 text-xs font-extrabold uppercase tracking-wider text-teal-200">
-                        <i data-lucide="sparkles" class="h-4 w-4" aria-hidden="true"></i>
-                        Curadoria ROTINA ACS
-                    </div>
+                    <div class="mb-4 inline-flex items-center gap-2 rounded-full border border-brand/30 bg-brand/10 px-3 py-1.5 text-xs font-extrabold uppercase tracking-wider text-teal-200"><i data-lucide="sparkles" class="h-4 w-4"></i>Curadoria ROTINA ACS</div>
                     <h2 id="achados-title" class="text-2xl font-black tracking-tight text-white md:text-3xl">Achados para o SUS</h2>
-                    <p class="mt-3 max-w-2xl text-base font-medium leading-relaxed text-slate-300">
-                        Uma seleção de cursos, ferramentas e produtos úteis para quem trabalha ou estuda na área da saúde.
-                    </p>
-                    <div class="mt-5 flex flex-wrap gap-2" aria-label="Categorias dos Achados">
-                        <span class="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-bold text-slate-300">Cursos</span>
-                        <span class="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-bold text-slate-300">Concursos</span>
-                        <span class="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-bold text-slate-300">Trabalho</span>
-                        <span class="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-bold text-slate-300">Tecnologia</span>
-                    </div>
-                    <p class="mt-5 max-w-2xl text-xs font-medium leading-relaxed text-slate-400">
-                        Alguns links podem gerar comissão para o ROTINA ACS, sem custo adicional para você.
-                    </p>
+                    <p class="mt-3 max-w-2xl text-base font-medium leading-relaxed text-slate-300">Uma seleção de cursos, ferramentas e produtos úteis para quem trabalha ou estuda na área da saúde.</p>
+                    <div class="mt-5 flex flex-wrap gap-2"><span class="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-bold text-slate-300">Cursos</span><span class="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-bold text-slate-300">Concursos</span><span class="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-bold text-slate-300">Trabalho</span><span class="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-bold text-slate-300">Tecnologia</span></div>
+                    <p class="mt-5 max-w-2xl text-xs font-medium leading-relaxed text-slate-400">Alguns links podem gerar comissão para o ROTINA ACS, sem custo adicional para você.</p>
                 </div>
-
-                <a id="btn-achados-hub" href="/achados/" class="cta-btn inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-2xl bg-brand px-6 py-4 font-black text-white shadow-lg shadow-teal-500/20 transition hover:bg-brand-dark md:w-auto md:min-w-52">
-                    Explorar Achados
-                    <i data-lucide="arrow-right" class="h-5 w-5" aria-hidden="true"></i>
-                </a>
+                <a id="btn-achados-hub" href="/achados/" class="cta-btn inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-2xl bg-brand px-6 py-4 font-black text-white shadow-lg shadow-teal-500/20 transition hover:bg-brand-dark md:w-auto md:min-w-52">Explorar Achados<i data-lucide="arrow-right" class="h-5 w-5"></i></a>
             </div>
         </div>
     </section>
 
     <section id="comunidade" class="max-w-5xl mx-auto px-4 pb-10">
-        <div class="bg-ink rounded-[2rem] shadow-soft border border-slate-800 p-8 md:p-12 text-center relative overflow-hidden">
+        <div class="lift-card bg-ink rounded-[2rem] shadow-soft border border-slate-800 p-8 md:p-12 text-center relative overflow-hidden">
             <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-md h-32 bg-brand/20 blur-[80px] rounded-full pointer-events-none"></div>
-            
             <div class="relative z-10">
-                <div class="w-16 h-16 bg-slate-800/50 rounded-2xl border border-white/10 flex items-center justify-center mx-auto mb-5">
-                    <i data-lucide="radar" class="w-8 h-8 text-brand"></i>
-                </div>
+                <div class="w-16 h-16 bg-slate-800/50 rounded-2xl border border-white/10 flex items-center justify-center mx-auto mb-5"><i data-lucide="radar" class="w-8 h-8 text-brand"></i></div>
                 <h2 class="text-2xl md:text-3xl font-black text-white tracking-tight mb-3">Ferramenta Grátis para a Comunidade</h2>
-                <p class="text-slate-300 font-medium mb-8 max-w-xl mx-auto">
-                    Acesse o Radar Vacinal. Organize por apelido as crianças da sua microárea e veja rapidamente quem está em atraso ou em dia.
-                </p>
-                <a data-dest="radar" href="https://leothaylor.github.io/RadarvacinaACS/" target="_blank" rel="noopener noreferrer" class="inline-flex justify-center items-center gap-2 bg-brand hover:bg-brand-light hover:text-brand-dark text-white font-black px-8 py-4 rounded-2xl transition shadow-lg shadow-brand/20 cta-btn">
-                    Acessar Radar Vacinal Grátis
-                </a>
+                <p class="text-slate-300 font-medium mb-8 max-w-xl mx-auto">Acesse o Radar Vacinal. Organize por apelido as crianças da sua microárea e veja rapidamente quem está em atraso ou em dia.</p>
+                <a data-dest="radar" href="https://leothaylor.github.io/RadarvacinaACS/" target="_blank" rel="noopener noreferrer" class="inline-flex justify-center items-center gap-2 bg-brand hover:bg-brand-light hover:text-brand-dark text-white font-black px-8 py-4 rounded-2xl transition shadow-lg shadow-brand/20 cta-btn">Acessar Radar Vacinal Grátis</a>
             </div>
         </div>
     </section>
 
     <section id="canais" class="max-w-5xl mx-auto px-4 pb-8">
-        <div class="bg-white rounded-[2rem] shadow-soft border border-black/5 p-6 md:p-10 text-center">
+        <div class="lift-card bg-white rounded-[2rem] shadow-soft border border-black/5 p-6 md:p-10 text-center">
             <h2 class="text-xl md:text-2xl font-black text-ink tracking-tight">Faça parte da comunidade</h2>
-            <p class="mt-2 text-gray-600 font-medium mb-8 max-w-lg mx-auto">
-                Junte-se a mais de 18.000 profissionais de saúde que acompanham nossas atualizações diárias.
-            </p>
-            
+            <p class="mt-2 text-gray-600 font-medium mb-8 max-w-lg mx-auto">Junte-se a mais de 23 mil profissionais de saúde que acompanham nossas atualizações diárias.</p>
             <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a id="btn-canal-ig" href="https://www.instagram.com/rotina_acs/" target="_blank" rel="noopener noreferrer" class="inline-flex justify-center items-center gap-2 bg-slate-50 hover:bg-slate-100 text-ink font-bold px-8 py-3.5 rounded-2xl transition shadow-sm border border-slate-200 cta-btn">
-                    <i data-lucide="instagram" class="w-5 h-5"></i>
-                    Instagram
-                </a>
-                
-                <a id="btn-canal-tiktok" href="https://www.tiktok.com/@rotina_acs?_r=1&_t=ZS-94qyP9X6gA1" target="_blank" rel="noopener noreferrer" class="inline-flex justify-center items-center gap-2 bg-slate-50 hover:bg-slate-100 text-ink font-bold px-8 py-3.5 rounded-2xl transition shadow-sm border border-slate-200 cta-btn">
-                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.01.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
-                    TikTok
-                </a>
+                <a id="btn-canal-ig" href="https://www.instagram.com/rotina_acs/" target="_blank" rel="noopener noreferrer" class="inline-flex justify-center items-center gap-2 bg-slate-50 hover:bg-slate-100 text-ink font-bold px-8 py-3.5 rounded-2xl transition shadow-sm border border-slate-200 cta-btn"><i data-lucide="instagram" class="w-5 h-5"></i>Instagram</a>
+                <a id="btn-canal-tiktok" href="https://www.tiktok.com/@rotina_acs?_r=1&_t=ZS-94qyP9X6gA1" target="_blank" rel="noopener noreferrer" class="inline-flex justify-center items-center gap-2 bg-slate-50 hover:bg-slate-100 text-ink font-bold px-8 py-3.5 rounded-2xl transition shadow-sm border border-slate-200 cta-btn"><svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.01.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>TikTok</a>
             </div>
         </div>
     </section>
 
     <footer class="border-t border-black/5 bg-white">
         <div class="max-w-5xl mx-auto px-4 py-6 flex flex-col md:flex-row items-center justify-center gap-4">
-            <div class="text-sm text-gray-500 font-medium text-center">
-                &copy; <span id="year"></span> ACS Tático. Todos os direitos reservados.
-            </div>
+            <div class="text-sm text-gray-500 font-medium text-center">&copy; <span id="year"></span> ACS Tático. Todos os direitos reservados.</div>
         </div>
     </footer>
 
-    <div id="modal-superkit" class="fixed inset-0 z-[100] bg-slate-900/60 backdrop-blur-sm hidden flex-col justify-center items-center px-4 transition-opacity opacity-0">
-        <div class="bg-white max-w-sm w-full rounded-3xl p-8 text-center shadow-2xl transform scale-95 transition-transform" id="modal-superkit-content">
-            <div class="w-16 h-16 bg-slate-50 text-slate-400 rounded-full flex items-center justify-center mx-auto mb-4 border border-slate-100">
-                <i data-lucide="badge-check" class="w-8 h-8"></i>
-            </div>
-            <h3 class="text-xl font-black text-ink mb-2">SuperKit ACS oficial disponível</h3>
-            <p class="text-sm text-gray-500 font-medium mb-8 leading-relaxed">
-                A versão final já foi validada e está pronta para você conhecer.
-            </p>
-            <a href="https://superkit.rotinaacs.com.br/" target="_blank" rel="noopener noreferrer" class="inline-flex w-full justify-center items-center gap-2 bg-ink hover:bg-slate-800 text-white font-black py-4 rounded-2xl transition shadow-md">
-                <i data-lucide="external-link" class="w-5 h-5"></i>
-                Conhecer o SuperKit oficial
-            </a>
-            <a href="https://www.instagram.com/rotina_acs/" target="_blank" rel="noopener noreferrer" class="mt-3 inline-flex w-full justify-center items-center gap-2 bg-slate-50 hover:bg-slate-100 text-ink font-bold py-3.5 rounded-2xl transition border border-slate-200">
-                <i data-lucide="instagram" class="w-5 h-5"></i>
-                Acompanhar no Instagram
-            </a>
-            <button onclick="closeSuperkitModal()" class="mt-5 text-xs font-bold text-gray-400 hover:text-gray-600 uppercase tracking-widest px-4 py-2 transition-colors">
-                Voltar à Vitrine
-            </button>
-        </div>
-    </div>
-
-    <script>
-        // Função de controle do Modal do Superkit
-        function openSuperkitModal() {
-            const modal = document.getElementById('modal-superkit');
-            const content = document.getElementById('modal-superkit-content');
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
-            setTimeout(() => {
-                modal.classList.remove('opacity-0');
-                content.classList.remove('scale-95');
-            }, 10);
-            
-            if(typeof gtag === 'function') {
-                gtag('event', 'view_modal_superkit');
-            }
-        }
-
-        function closeSuperkitModal() {
-            const modal = document.getElementById('modal-superkit');
-            const content = document.getElementById('modal-superkit-content');
-            modal.classList.add('opacity-0');
-            content.classList.add('scale-95');
-            setTimeout(() => {
-                modal.classList.add('hidden');
-                modal.classList.remove('flex');
-            }, 300);
-        }
-    </script>
-
     <script>
         (function () {
-            const NOISE_PARAMS = new Set([
-                "fbclid"
-            ]);
-
-            const FALLBACKS = {
-                utm_source: "instagram",
-                utm_medium: "bio",
-                utm_campaign: "portal_acs",
-                utm_content: "portal_acs"
-            };
-
-            function normalizeValue(value) {
-                return typeof value === "string" ? value.trim() : "";
-            }
-
-            function hasMeaningfulValue(value) {
-                return normalizeValue(value) !== "";
-            }
-
-            function shouldKeepParam(key, value) {
-                if (!hasMeaningfulValue(value)) return false;
-                if (NOISE_PARAMS.has(key.toLowerCase())) return false;
-                return true;
-            }
-
-            function appendProductToContent(baseContent, productKey) {
-                const cleanBase = normalizeValue(baseContent);
-                const suffix = "portal_" + productKey;
-
-                if (!cleanBase) {
-                    return suffix;
-                }
-
-                const normalizedBase = cleanBase.toLowerCase();
-                if (
-                    normalizedBase.includes("__" + productKey) ||
-                    normalizedBase.includes("portal_" + productKey) ||
-                    normalizedBase.includes("produto_" + productKey)
-                ) {
-                    return cleanBase;
-                }
-
-                return cleanBase + "__" + productKey;
-            }
-
-            function buildTrackedUrl(baseHref, productKey) {
-                const destinationUrl = new URL(baseHref);
-                const incomingParams = new URLSearchParams(window.location.search);
-
-                const preservedParams = new URLSearchParams();
-
-                for (const [key, value] of incomingParams.entries()) {
-                    if (shouldKeepParam(key, value)) {
-                        preservedParams.set(key, value);
-                    }
-                }
-
-                const finalSource = preservedParams.get("utm_source") || FALLBACKS.utm_source;
-                const finalMedium = preservedParams.get("utm_medium") || FALLBACKS.utm_medium;
-                const finalCampaign = preservedParams.get("utm_campaign") || FALLBACKS.utm_campaign;
-                const baseContent = preservedParams.get("utm_content") || FALLBACKS.utm_content;
-                const finalContent = appendProductToContent(baseContent, productKey);
-
-                preservedParams.set("utm_source", finalSource);
-                preservedParams.set("utm_medium", finalMedium);
-                preservedParams.set("utm_campaign", finalCampaign);
-                preservedParams.set("utm_content", finalContent);
-
-                for (const [key, value] of destinationUrl.searchParams.entries()) {
-                    if (!preservedParams.has(key) && shouldKeepParam(key, value)) {
-                        preservedParams.set(key, value);
-                    }
-                }
-
-                destinationUrl.search = preservedParams.toString();
-                return destinationUrl.toString();
-            }
-
-            document.querySelectorAll("a[data-dest]").forEach(function (anchor) {
-                const productKey = anchor.getAttribute("data-dest");
-                anchor.href = buildTrackedUrl(anchor.href, productKey);
-            });
+            const NOISE_PARAMS = new Set(["fbclid"]);
+            const FALLBACKS = {utm_source:"instagram",utm_medium:"bio",utm_campaign:"portal_acs",utm_content:"portal_acs"};
+            function normalizeValue(value){return typeof value === "string" ? value.trim() : "";}
+            function hasMeaningfulValue(value){return normalizeValue(value) !== "";}
+            function shouldKeepParam(key,value){if(!hasMeaningfulValue(value)) return false;if(NOISE_PARAMS.has(key.toLowerCase())) return false;return true;}
+            function appendProductToContent(baseContent,productKey){const cleanBase=normalizeValue(baseContent);const suffix="portal_"+productKey;if(!cleanBase)return suffix;const normalizedBase=cleanBase.toLowerCase();if(normalizedBase.includes("__"+productKey)||normalizedBase.includes("portal_"+productKey)||normalizedBase.includes("produto_"+productKey))return cleanBase;return cleanBase+"__"+productKey;}
+            function buildTrackedUrl(baseHref,productKey){const destinationUrl=new URL(baseHref);const incomingParams=new URLSearchParams(window.location.search);const preservedParams=new URLSearchParams();for(const [key,value] of incomingParams.entries()){if(shouldKeepParam(key,value))preservedParams.set(key,value);}const finalSource=preservedParams.get("utm_source")||FALLBACKS.utm_source;const finalMedium=preservedParams.get("utm_medium")||FALLBACKS.utm_medium;const finalCampaign=preservedParams.get("utm_campaign")||FALLBACKS.utm_campaign;const baseContent=preservedParams.get("utm_content")||FALLBACKS.utm_content;const finalContent=appendProductToContent(baseContent,productKey);preservedParams.set("utm_source",finalSource);preservedParams.set("utm_medium",finalMedium);preservedParams.set("utm_campaign",finalCampaign);preservedParams.set("utm_content",finalContent);for(const [key,value] of destinationUrl.searchParams.entries()){if(!preservedParams.has(key)&&shouldKeepParam(key,value))preservedParams.set(key,value);}destinationUrl.search=preservedParams.toString();return destinationUrl.toString();}
+            document.querySelectorAll("a[data-dest]").forEach(function(anchor){const productKey=anchor.getAttribute("data-dest");anchor.href=buildTrackedUrl(anchor.href,productKey);});
         })();
     </script>
 
@@ -532,77 +265,20 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            
-            // 🟢 Rastreamento
             const productLinks = document.querySelectorAll('a[data-dest]');
             productLinks.forEach(link => {
                 link.addEventListener('click', function() {
                     const produtoID = this.getAttribute('data-dest');
                     const nomeProduto = produtoID === 'superkit' ? 'SuperKit ACS' : (produtoID === 'radar' ? 'Radar Vacinal Grátis' : 'Manual APS 360');
-                    
-                    gtag('event', 'select_item', {
-                        'item_list_name': 'vitrine_principal',
-                        'items': [{
-                            'item_id': produtoID,
-                            'item_name': nomeProduto
-                        }]
-                    });
+                    gtag('event', 'select_item', {'item_list_name':'vitrine_principal','items':[{'item_id':produtoID,'item_name':nomeProduto}]});
                 });
             });
 
             const achadosHubButton = document.getElementById('btn-achados-hub');
-            if (achadosHubButton) {
-                achadosHubButton.addEventListener('click', function() {
-                    gtag('event', 'achados_hub_click', {
-                        'source': 'home',
-                        'destination': 'achados'
-                    });
-                });
-            }
-
-            const btnIg = document.getElementById('btn-canal-ig');
-            if (btnIg) {
-                btnIg.addEventListener('click', function() {
-                    gtag('event', 'click_canal_instagram', {
-                        'origem': 'vitrine_canais'
-                    });
-                    gtag('event', 'click_suporte_ig', {
-                        'origem': 'vitrine_canais'
-                    });
-                });
-            }
-
-            const btnTiktok = document.getElementById('btn-canal-tiktok');
-            if (btnTiktok) {
-                btnTiktok.addEventListener('click', function() {
-                    gtag('event', 'click_canal_tiktok', {
-                        'origem': 'vitrine_canais'
-                    });
-                });
-            }
-
-            const faqs = document.querySelectorAll('details');
-            faqs.forEach(faq => {
-                faq.addEventListener('toggle', function() {
-                    if (this.open) {
-                        const questionText = this.querySelector('summary').innerText.trim();
-                        gtag('event', 'faq_open', {
-                            'pergunta': questionText,
-                            'pagina': 'vitrine'
-                        });
-                    }
-                });
-            });
-
-            const anchorLinks = document.querySelectorAll('a[href^="#"]');
-            anchorLinks.forEach(link => {
-                link.addEventListener('click', function() {
-                    const destino = this.getAttribute('href');
-                    gtag('event', 'navegacao_vitrine', {
-                        'destino_secao': destino
-                    });
-                });
-            });
+            if (achadosHubButton) achadosHubButton.addEventListener('click', function(){gtag('event','achados_hub_click',{'source':'home','destination':'achados'});});
+            const btnIg=document.getElementById('btn-canal-ig');if(btnIg)btnIg.addEventListener('click',function(){gtag('event','click_canal_instagram',{'origem':'vitrine_canais'});gtag('event','click_suporte_ig',{'origem':'vitrine_canais'});});
+            const btnTiktok=document.getElementById('btn-canal-tiktok');if(btnTiktok)btnTiktok.addEventListener('click',function(){gtag('event','click_canal_tiktok',{'origem':'vitrine_canais'});});
+            const anchorLinks=document.querySelectorAll('a[href^="#"]');anchorLinks.forEach(link=>{link.addEventListener('click',function(){gtag('event','navegacao_vitrine',{'destino_secao':this.getAttribute('href')});});});
         });
     </script>
 </body>
