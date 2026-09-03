@@ -99,6 +99,7 @@
     .section-head { display: flex; align-items: end; justify-content: space-between; gap: 30px; margin-bottom: 26px; }
     .section-head h2 { margin: 0; font: 800 clamp(2rem, 4vw, 3.2rem)/1 Outfit, sans-serif; letter-spacing: -.04em; }
     .section-head p { max-width: 460px; margin: 0; color: var(--muted); font-size: .92rem; line-height: 1.65; }
+    .catalog-grid { display: grid; gap: 22px; }
     .product-link { display: grid; grid-template-columns: minmax(260px, .85fr) 1.15fr; min-height: 410px; overflow: hidden; border: 1px solid var(--line); border-radius: 32px; background: var(--surface); box-shadow: var(--shadow); text-decoration: none; transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease; }
     .product-link:hover { transform: translateY(-3px); border-color: rgba(15,159,145,.42); box-shadow: 0 26px 70px rgba(15,23,42,.13); }
     .product-visual { position: relative; min-height: 330px; overflow: hidden; background: var(--dark); }
@@ -106,6 +107,12 @@
     .product-link:hover .product-visual img { transform: scale(1.025); }
     .product-visual::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 45%, rgba(7,19,27,.76)); pointer-events: none; }
     .visual-label { position: absolute; z-index: 2; right: 18px; bottom: 18px; left: 18px; color: #fff; font-size: .76rem; font-weight: 800; }
+    .study-visual { display: grid; place-items: center; padding: 34px; background: linear-gradient(145deg,#0d202b,#07131b); }
+    .study-board { position: relative; z-index: 1; width: min(330px, 88%); border: 1px solid rgba(255,255,255,.12); border-radius: 28px; background: rgba(255,255,255,.06); padding: 26px; color: #fff; box-shadow: 0 20px 50px rgba(0,0,0,.2); }
+    .study-board strong { display: block; font: 900 clamp(2.4rem,5vw,4.4rem)/.95 Outfit,sans-serif; letter-spacing: -.04em; }
+    .study-board p { margin: 10px 0 18px; color: #c7d2da; font-size: .84rem; line-height: 1.6; }
+    .study-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .study-tags span { border: 1px solid rgba(255,255,255,.12); border-radius: 999px; background: rgba(255,255,255,.06); padding: 7px 9px; font-size: .7rem; font-weight: 700; color: #dce7ed; }
     .product-copy { display: flex; flex-direction: column; justify-content: center; padding: clamp(28px, 5vw, 56px); }
     .category { display: inline-flex; align-self: flex-start; align-items: center; gap: 7px; border-radius: 999px; background: #e9faf7; padding: 8px 11px; color: var(--teal-dark); font-size: .72rem; font-weight: 800; }
     .category svg { width: 15px; height: 15px; }
@@ -185,23 +192,44 @@
     <section class="shell catalog" aria-labelledby="catalog-title">
       <div class="section-head">
         <h2 id="catalog-title">Seleção atual</h2>
-        <p>O hub começa com uma indicação já avaliada. Novos Achados serão adicionados conforme a curadoria avançar.</p>
+        <p>Produtos e materiais são adicionados conforme passam pela curadoria do ROTINA ACS.</p>
       </div>
 
-      <article>
-        <a class="product-link" data-achado-product="defesa_pessoal_caveira_2_0" href="/achados/defesa-pessoal/" aria-label="Ver detalhes sobre o treinamento de defesa pessoal">
-          <div class="product-visual">
-            <img src="./defesa-pessoal/profissional-territorio.png" alt="Profissional em atuação territorial" width="1536" height="1024" loading="lazy" />
-            <span class="visual-label">Treinamento online · indicação contextual</span>
-          </div>
-          <div class="product-copy">
-            <span class="category"><i data-lucide="shield-check" aria-hidden="true"></i> Segurança e trabalho em campo</span>
-            <h3>Defesa pessoal para quem quer ampliar preparo e repertório</h3>
-            <p>Treinamento online apresentado como recurso complementar para quem deseja aprender defesa pessoal.</p>
-            <span class="product-cta">Ver detalhes <i data-lucide="arrow-right" aria-hidden="true"></i></span>
-          </div>
-        </a>
-      </article>
+      <div class="catalog-grid">
+        <article>
+          <a class="product-link" data-achado-product="defesa_pessoal_caveira_2_0" data-achado-category="seguranca_trabalho_campo" href="/achados/defesa-pessoal/" aria-label="Ver detalhes sobre o treinamento de defesa pessoal">
+            <div class="product-visual">
+              <img src="./defesa-pessoal/profissional-territorio.png" alt="Profissional em atuação territorial" width="1536" height="1024" loading="lazy" />
+              <span class="visual-label">Treinamento online · indicação contextual</span>
+            </div>
+            <div class="product-copy">
+              <span class="category"><i data-lucide="shield-check" aria-hidden="true"></i> Segurança e trabalho em campo</span>
+              <h3>Defesa pessoal para quem quer ampliar preparo e repertório</h3>
+              <p>Treinamento online apresentado como recurso complementar para quem deseja aprender defesa pessoal.</p>
+              <span class="product-cta">Ver detalhes <i data-lucide="arrow-right" aria-hidden="true"></i></span>
+            </div>
+          </a>
+        </article>
+
+        <article>
+          <a class="product-link" data-achado-product="calculos_medicamentos" data-achado-category="saude_enfermagem" href="/achados/calculos-de-medicamentos/" aria-label="Ver detalhes sobre o material de cálculos de medicamentos">
+            <div class="product-visual study-visual">
+              <div class="study-board">
+                <strong>100 questões</strong>
+                <p>Material digital com resolução passo a passo para estudo e revisão.</p>
+                <div class="study-tags"><span>Regra de 3</span><span>Gotejamento</span><span>Insulina</span><span>Soro</span></div>
+              </div>
+              <span class="visual-label">eBook · estudo e prática</span>
+            </div>
+            <div class="product-copy">
+              <span class="category"><i data-lucide="stethoscope" aria-hidden="true"></i> Saúde e enfermagem</span>
+              <h3>Cálculos de medicamentos para estudar e praticar</h3>
+              <p>Material em eBook com questões resolvidas e explicações passo a passo sobre regra de 3, gotejamento, insulina e outros cálculos.</p>
+              <span class="product-cta">Ver detalhes <i data-lucide="arrow-right" aria-hidden="true"></i></span>
+            </div>
+          </a>
+        </article>
+      </div>
     </section>
 
     <section class="shell transparency" aria-labelledby="transparency-title">
@@ -226,7 +254,7 @@
       link.addEventListener('click', function() {
         gtag('event', 'achado_product_click', {
           'product': this.getAttribute('data-achado-product'),
-          'category': 'seguranca_trabalho_campo'
+          'category': this.getAttribute('data-achado-category') || 'achados'
         });
       });
     });
